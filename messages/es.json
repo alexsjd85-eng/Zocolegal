@@ -23,7 +23,19 @@
   "services": {
     "label": "Servicios",
     "title": "Pensado para personas, no para juristas",
-    "subtitle": "Eliminamos la burocracia para que te concentres en lo importante: tu vida en Catalunya."
+    "subtitle": "Eliminamos la burocracia para que te concentres en lo importante: tu vida en Catalunya.",
+    "f1title": "Guía paso a paso",
+    "f1text": "Exactamente qué documentos necesitas y en qué orden para tu caso concreto.",
+    "f2title": "6 idiomas",
+    "f2text": "Castellano, catalán, inglés, árabe y chino. Sin tecnicismos jurídicos.",
+    "f3title": "Checklist de documentos",
+    "f3text": "Sabes si falta algo antes de ir a la cita.",
+    "f4title": "Alertas de plazos",
+    "f4text": "Recibes aviso cuando se acerca la caducidad de tu permiso.",
+    "f5title": "Asesoría jurídica",
+    "f5text": "Abogados especializados revisan tu caso y te indican el camino correcto.",
+    "f6title": "Seguimiento activo",
+    "f6text": "Monitorizamos tu expediente y te avisamos ante cualquier novedad."
   },
   "how": {
     "label": "Cómo funciona",
