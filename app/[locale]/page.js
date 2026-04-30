@@ -1,28 +1,21 @@
-import { useTranslations } from 'next-intl';
-import { TRAMITES } from '@/lib/tramites';
-import CatalogGrid from '@/components/CatalogGrid';
 import Nav from '@/components/Nav';
+import Hero from '@/components/Hero';
+import Stats from '@/components/Stats';
+import Services from '@/components/Services';
+import HowItWorks from '@/components/HowItWorks';
+import CtaBand from '@/components/CtaBand';
 import Footer from '@/components/Footer';
 
-export default function TramitesPage() {
+export default function Home() {
   return (
     <main>
       <Nav />
-      <TramitesContent />
+      <Hero />
+      <Stats />
+      <Services />
+      <HowItWorks />
+      <CtaBand />
       <Footer />
     </main>
-  );
-}
-
-function TramitesContent() {
-  const t = useTranslations('tramites');
-  return (
-    <>
-      <div className="page-hero">
-        <h1>{t('hero_title')}</h1>
-        <p>{t('hero_sub')}</p>
-      </div>
-      <CatalogGrid tramites={TRAMITES} />
-    </>
   );
 }
