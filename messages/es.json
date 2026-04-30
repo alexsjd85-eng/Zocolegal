@@ -52,5 +52,17 @@
     "subtitle": "Contáctanos y te respondemos en menos de 24 horas.",
     "btn1": "Contactar ahora",
     "btn2": "Ver servicios"
-  }
-}
+  },
+"tramites": {
+  "hero_title": "Catálogo de Trámites",
+  "hero_sub": "Información oficial, tiempos estimados y documentación necesaria para cada trámite.",
+  "ver_ficha": "Ver ficha completa →",
+  "volver": "← Volver al catálogo",
+  "docs": "Documentación a aportar",
+  "forms": "Formularios oficiales",
+  "where": "Dónde presentar",
+  "links": "Recursos oficiales",
+  "assist_title": "¿Necesitas ayuda con este trámite?",
+  "assist_sub": "Nuestro equipo puede orientarte, revisar tu documentación o gestionarlo todo por ti.",
+  "assist_btn": "Ver niveles de asistencia →"
+}}

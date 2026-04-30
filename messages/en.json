@@ -40,5 +40,17 @@
     "subtitle": "Contact us and we will reply within 24 hours.",
     "btn1": "Contact us",
     "btn2": "See services"
-  }
-}
+  },
+"tramites": {
+  "hero_title": "Procedures Catalogue",
+  "hero_sub": "Official information, estimated timelines and required documentation for each procedure.",
+  "ver_ficha": "View full details →",
+  "volver": "← Back to catalogue",
+  "docs": "Required documents",
+  "forms": "Official forms",
+  "where": "Where to apply",
+  "links": "Official resources",
+  "assist_title": "Need help with this procedure?",
+  "assist_sub": "Our team can guide you, review your documentation or manage everything for you.",
+  "assist_btn": "See assistance levels →"
+}}

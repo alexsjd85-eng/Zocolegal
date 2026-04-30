@@ -40,5 +40,17 @@
     "subtitle": "Contacta'ns i et responem en menys de 24 hores.",
     "btn1": "Contactar ara",
     "btn2": "Veure serveis"
-  }
-}
+  },
+"tramites": {
+  "hero_title": "Catàleg de Tràmits",
+  "hero_sub": "Informació oficial, temps estimats i documentació necessària per a cada tràmit.",
+  "ver_ficha": "Veure fitxa completa →",
+  "volver": "← Tornar al catàleg",
+  "docs": "Documentació a aportar",
+  "forms": "Formularis oficials",
+  "where": "On presentar",
+  "links": "Recursos oficials",
+  "assist_title": "Necessites ajuda amb aquest tràmit?",
+  "assist_sub": "El nostre equip pot orientar-te, revisar la teva documentació o gestionar-ho tot per tu.",
+  "assist_btn": "Veure nivells d'assistència →"
+}}

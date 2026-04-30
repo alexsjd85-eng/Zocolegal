@@ -1,46 +1,48 @@
 'use client';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 
-export default function TramiteDetail({ tramite: t, onBack, locale }) {
+export default function TramiteDetail({ tramite: t2, onBack, locale }) {
+  const t = useTranslations('tramites');
   const router = useRouter();
 
   return (
     <>
       <div className="detail-hero">
         <div className="detail-hero-inner">
-          <button className="detail-back" onClick={onBack}>← Volver al catálogo</button>
-          <h1>{t.title}</h1>
-          <p>{t.desc}</p>
+          <button className="detail-back" onClick={onBack}>{t('volver')}</button>
+          <h1>{t2.title}</h1>
+          <p>{t2.desc}</p>
         </div>
       </div>
       <section className="section">
-        <div className="time-badge">⏱ {t.time}</div>
+        <div className="time-badge">⏱ {t2.time}</div>
         <div className="detail-grid">
           <div className="detail-card">
-            <h3>📄 Documentación a aportar</h3>
+            <h3>📄 {t('docs')}</h3>
             <ul className="detail-list">
-              {t.docs.map((d, i) => <li key={i}>{d}</li>)}
+              {t2.docs.map((d, i) => <li key={i}>{d}</li>)}
             </ul>
           </div>
           <div className="detail-card">
-            <h3>📋 Formularios oficiales</h3>
-            {t.forms.map((f, i) => (
+            <h3>📋 {t('forms')}</h3>
+            {t2.forms.map((f, i) => (
               <a key={i} href={f.url} target="_blank" className="detail-link">
                 {f.name} <span className="ext">↗</span>
               </a>
             ))}
           </div>
           <div className="detail-card">
-            <h3>📍 Dónde presentar</h3>
-            {t.where.map((w, i) => (
+            <h3>📍 {t('where')}</h3>
+            {t2.where.map((w, i) => (
               <a key={i} href={w.url} target="_blank" className="detail-link">
                 📍 {w.name} <span className="ext">↗</span>
               </a>
             ))}
           </div>
           <div className="detail-card">
-            <h3>🔗 Recursos oficiales</h3>
-            {t.links.map((l, i) => (
+            <h3>🔗 {t('links')}</h3>
+            {t2.links.map((l, i) => (
               <a key={i} href={l.url} target="_blank" className="detail-link">
                 {l.name} <span className="ext">↗</span>
               </a>
@@ -48,10 +50,10 @@ export default function TramiteDetail({ tramite: t, onBack, locale }) {
           </div>
         </div>
         <div className="assist-banner">
-          <h3>¿Necesitas ayuda con este trámite?</h3>
-          <p>Nuestro equipo puede orientarte, revisar tu documentación o gestionarlo todo por ti.</p>
+          <h3>{t('assist_title')}</h3>
+          <p>{t('assist_sub')}</p>
           <button className="btn-gold" onClick={() => router.push(`/${locale}/servicios`)}>
-            Ver niveles de asistencia →
+            {t('assist_btn')}
           </button>
         </div>
       </section>
