@@ -23,7 +23,19 @@
   "services": {
     "label": "Serveis",
     "title": "Pensat per a persones, no per a juristes",
-    "subtitle": "Eliminem la burocràcia perquè et concentris en el que importa: la teva vida a Catalunya."
+    "subtitle": "Eliminem la burocràcia perquè et concentris en el que importa: la teva vida a Catalunya.",
+    "f1title": "Guia pas a pas",
+    "f1text": "Exactament quins documents necessites i en quin ordre per al teu cas concret.",
+    "f2title": "6 idiomes",
+    "f2text": "Castellà, català, anglès, àrab i xinès. Sense tecnicismes jurídics.",
+    "f3title": "Checklist de documents",
+    "f3text": "Saps si falta alguna cosa abans d'anar a la cita.",
+    "f4title": "Alertes de terminis",
+    "f4text": "Reps avís quan s'acosta la caducitat del teu permís.",
+    "f5title": "Assessoria jurídica",
+    "f5text": "Advocats especialitzats revisen el teu cas i t'indiquen el camí correcte.",
+    "f6title": "Seguiment actiu",
+    "f6text": "Monitoritzem el teu expedient i t'avisem davant qualsevol novetat."
   },
   "how": {
     "label": "Com funciona",
@@ -41,16 +53,27 @@
     "btn1": "Contactar ara",
     "btn2": "Veure serveis"
   },
-"tramites": {
-  "hero_title": "Catàleg de Tràmits",
-  "hero_sub": "Informació oficial, temps estimats i documentació necessària per a cada tràmit.",
-  "ver_ficha": "Veure fitxa completa →",
-  "volver": "← Tornar al catàleg",
-  "docs": "Documentació a aportar",
-  "forms": "Formularis oficials",
-  "where": "On presentar",
-  "links": "Recursos oficials",
-  "assist_title": "Necessites ajuda amb aquest tràmit?",
-  "assist_sub": "El nostre equip pot orientar-te, revisar la teva documentació o gestionar-ho tot per tu.",
-  "assist_btn": "Veure nivells d'assistència →"
-}}
+  "tramites": {
+    "hero_title": "Catàleg de Tràmits",
+    "hero_sub": "Informació oficial, temps estimats i documentació necessària per a cada tràmit.",
+    "ver_ficha": "Veure fitxa completa →",
+    "volver": "← Tornar al catàleg",
+    "docs": "Documentació a aportar",
+    "forms": "Formularis oficials",
+    "where": "On presentar",
+    "links": "Recursos oficials",
+    "assist_title": "Necessites ajuda amb aquest tràmit?",
+    "assist_sub": "El nostre equip pot orientar-te, revisar la teva documentació o gestionar-ho tot per tu.",
+    "assist_btn": "Veure nivells d'assistència →",
+    "items": {
+      "residencia": { "title": "Autorització de Residència Temporal", "desc": "Permet viure legalment a Espanya entre 90 dies i 5 anys. Necessari per establir-se i treballar a Catalunya.", "badge": "Molt sol·licitat", "chips": ["No comunitaris", "Des de 0"] },
+      "tie": { "title": "Renovació de la Targeta de Residència (TIE)", "desc": "Renova el teu TIE abans que caduqui. Sol·licita'l entre 60 dies abans i 90 dies després de la caducitat.", "badge": "Recurrent", "chips": ["Residents", "Renovació"] },
+      "reagrupacion": { "title": "Reagrupació Familiar", "desc": "Permet reunir-se amb familiars directes si ja tens residència legal a Espanya.", "badge": "Freqüent", "chips": ["Residents", "Famílies"] },
+      "nie": { "title": "NIE — Número d'Identificació d'Estranger", "desc": "Número imprescindible per a qualsevol gestió legal, fiscal o laboral a Espanya.", "badge": "Bàsic", "chips": ["Tothom", "Urgent possible"] },
+      "nacionalidad": { "title": "Nacionalitat Espanyola per Residència", "desc": "Sol·licita la nacionalitat espanyola després de 10 anys de residència legal (2 anys per a iberoamericans).", "badge": "Complex", "chips": ["Llarga durada"] },
+      "trabajo-ajena": { "title": "Autorització de Treball per Compte Aliè", "desc": "Permís per treballar com a empleat a Espanya. Generalment la sol·licita l'empresari.", "badge": "Sol·licitat", "chips": ["No comunitaris", "Treball"] },
+      "trabajo-propia": { "title": "Autorització de Treball per Compte Propi", "desc": "Permís per treballar com a autònom o emprenedor a Espanya sent ciutadà no comunitari.", "badge": "Autònoms", "chips": ["No comunitaris", "Autònoms"] },
+      "ue": { "title": "Certificat de Registre de Ciutadà UE", "desc": "Registre obligatori per a ciutadans de la UE que resideixin a Espanya més de 3 mesos.", "badge": "UE", "chips": ["Ciutadans UE", "Ràpid"] }
+    }
+  }
+}

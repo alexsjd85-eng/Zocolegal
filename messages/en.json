@@ -1,56 +1,31 @@
 {
-  "nav": {
-    "tramites": "Procedures",
-    "servicios": "Services",
-    "contacto": "Contact"
-  },
-  "hero": {
-    "tag": "Immigration specialists · Barcelona",
-    "title": "Your residence permit,",
-    "titleEm": "without complications",
-    "subtitle": "We guide you through every step of your immigration process. From €49. In your language.",
-    "cta1": "See procedures",
-    "cta2": "Our services"
-  },
-  "stats": {
-    "clients": "+500",
-    "clientsLabel": "Clients served",
-    "foreign": "18,7%",
-    "foreignLabel": "Foreign population in Catalonia",
-    "langs": "6",
-    "langsLabel": "Available languages"
-  },
-  "services": {
-    "label": "Services",
-    "title": "Built for people, not lawyers",
-    "subtitle": "We remove the bureaucracy so you can focus on what matters: your life in Catalonia."
-  },
-  "how": {
-    "label": "How it works",
-    "title": "Three steps to sort your paperwork",
-    "s1title": "Tell us your situation",
-    "s1text": "Fill in a short form about your permit and what you want to achieve.",
-    "s2title": "Get your personalised plan",
-    "s2text": "We tell you which procedure to follow and what documents you need.",
-    "s3title": "We are with you every step",
-    "s3text": "Depending on your plan, we guide you, review your documents or manage everything."
-  },
-  "cta": {
-    "title": "Have any questions?",
-    "subtitle": "Contact us and we will reply within 24 hours.",
-    "btn1": "Contact us",
-    "btn2": "See services"
-  },
-"tramites": {
-  "hero_title": "Procedures Catalogue",
-  "hero_sub": "Official information, estimated timelines and required documentation for each procedure.",
-  "ver_ficha": "View full details →",
-  "volver": "← Back to catalogue",
-  "docs": "Required documents",
-  "forms": "Official forms",
-  "where": "Where to apply",
-  "links": "Official resources",
-  "assist_title": "Need help with this procedure?",
-  "assist_sub": "Our team can guide you, review your documentation or manage everything for you.",
-  "assist_btn": "See assistance levels →"
-}}
+  "nav": { "tramites": "Procedures", "servicios": "Services", "contacto": "Contact" },
+  "hero": { "tag": "Immigration specialists · Barcelona", "title": "Your residence permit,", "titleEm": "without complications", "subtitle": "We guide you through every step of your immigration process. From €49. In your language.", "cta1": "See procedures", "cta2": "Our services" },
+  "stats": { "clients": "+500", "clientsLabel": "Clients served", "foreign": "18.7%", "foreignLabel": "Foreign population in Catalonia", "langs": "6", "langsLabel": "Available languages" },
+  "services": { "label": "Services", "title": "Built for people, not lawyers", "subtitle": "We remove the bureaucracy so you can focus on what matters: your life in Catalonia.", "f1title": "Step-by-step guide", "f1text": "Exactly what documents you need and in what order for your specific case.", "f2title": "6 languages", "f2text": "Spanish, Catalan, English, Arabic and Chinese. No legal jargon.", "f3title": "Document checklist", "f3text": "Know if anything is missing before your appointment.", "f4title": "Deadline alerts", "f4text": "Get notified when your permit is about to expire.", "f5title": "Legal advice", "f5text": "Specialized lawyers review your case and guide you.", "f6title": "Active tracking", "f6text": "We monitor your file and alert you to any news." },
+  "how": { "label": "How it works", "title": "Three steps to sort your paperwork", "s1title": "Tell us your situation", "s1text": "Fill in a short form about your permit and what you want to achieve.", "s2title": "Get your personalised plan", "s2text": "We tell you which procedure to follow and what documents you need.", "s3title": "We are with you every step", "s3text": "Depending on your plan, we guide you, review your documents or manage everything." },
+  "cta": { "title": "Have any questions?", "subtitle": "Contact us and we will reply within 24 hours.", "btn1": "Contact us", "btn2": "See services" },
+  "tramites": {
+    "hero_title": "Procedures Catalogue",
+    "hero_sub": "Official information, estimated timelines and required documentation for each procedure.",
+    "ver_ficha": "View full details →",
+    "volver": "← Back to catalogue",
+    "docs": "Required documents",
+    "forms": "Official forms",
+    "where": "Where to apply",
+    "links": "Official resources",
+    "assist_title": "Need help with this procedure?",
+    "assist_sub": "Our team can guide you, review your documentation or manage everything for you.",
+    "assist_btn": "See assistance levels →",
+    "items": {
+      "residencia": { "title": "Temporary Residence Permit", "desc": "Allows you to live legally in Spain for 90 days to 5 years. Required to settle and work in Catalonia.", "badge": "Most requested", "chips": ["Non-EU citizens", "First application"] },
+      "tie": { "title": "Residence Card (TIE) Renewal", "desc": "Renew your TIE before it expires. Apply between 60 days before and 90 days after expiry.", "badge": "Recurring", "chips": ["Residents", "Renewal"] },
+      "reagrupacion": { "title": "Family Reunification", "desc": "Allows you to reunite with close family members if you already have legal residence in Spain.", "badge": "Frequent", "chips": ["Residents", "Families"] },
+      "nie": { "title": "NIE — Foreigner Identification Number", "desc": "Essential number for any legal, tax or employment procedure in Spain.", "badge": "Basic", "chips": ["Everyone", "Urgent possible"] },
+      "nacionalidad": { "title": "Spanish Nationality by Residence", "desc": "Apply for Spanish nationality after 10 years of legal residence (2 years for Latin Americans).", "badge": "Complex", "chips": ["Long-term residents"] },
+      "trabajo-ajena": { "title": "Work Permit — Employee", "desc": "Permit to work as an employee in Spain. Usually applied for by the employer.", "badge": "Common", "chips": ["Non-EU citizens", "Work"] },
+      "trabajo-propia": { "title": "Work Permit — Self-employed", "desc": "Permit to work as a freelancer or entrepreneur in Spain as a non-EU citizen.", "badge": "Self-employed", "chips": ["Non-EU citizens", "Freelance"] },
+      "ue": { "title": "EU Citizen Registration Certificate", "desc": "Mandatory registration for EU citizens residing in Spain for more than 3 months.", "badge": "EU", "chips": ["EU citizens", "Fast"] }
+    }
+  }
+}

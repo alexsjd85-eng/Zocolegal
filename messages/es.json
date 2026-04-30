@@ -1,68 +1,31 @@
 {
-  "nav": {
-    "tramites": "Trámites",
-    "servicios": "Servicios",
-    "contacto": "Contacto"
-  },
-  "hero": {
-    "tag": "Especialistas en extranjería · Barcelona",
-    "title": "Tu permiso de residencia,",
-    "titleEm": "sin complicaciones",
-    "subtitle": "Te acompañamos en cada paso de tus trámites de extranjería. Desde 49€. En tu idioma, sin esperas innecesarias.",
-    "cta1": "Ver trámites",
-    "cta2": "Nuestros servicios"
-  },
-  "stats": {
-    "clients": "+500",
-    "clientsLabel": "Clientes atendidos",
-    "foreign": "18,7%",
-    "foreignLabel": "Población extranjera en Catalunya",
-    "langs": "6",
-    "langsLabel": "Idiomas disponibles"
-  },
-  "services": {
-    "label": "Servicios",
-    "title": "Pensado para personas, no para juristas",
-    "subtitle": "Eliminamos la burocracia para que te concentres en lo importante: tu vida en Catalunya.",
-    "f1title": "Guía paso a paso",
-    "f1text": "Exactamente qué documentos necesitas y en qué orden para tu caso concreto.",
-    "f2title": "6 idiomas",
-    "f2text": "Castellano, catalán, inglés, árabe y chino. Sin tecnicismos jurídicos.",
-    "f3title": "Checklist de documentos",
-    "f3text": "Sabes si falta algo antes de ir a la cita.",
-    "f4title": "Alertas de plazos",
-    "f4text": "Recibes aviso cuando se acerca la caducidad de tu permiso.",
-    "f5title": "Asesoría jurídica",
-    "f5text": "Abogados especializados revisan tu caso y te indican el camino correcto.",
-    "f6title": "Seguimiento activo",
-    "f6text": "Monitorizamos tu expediente y te avisamos ante cualquier novedad."
-  },
-  "how": {
-    "label": "Cómo funciona",
-    "title": "Tres pasos para ordenar tus trámites",
-    "s1title": "Cuéntanos tu situación",
-    "s1text": "Rellena un breve formulario sobre tu permiso y qué quieres conseguir.",
-    "s2title": "Recibe tu plan personalizado",
-    "s2text": "Te indicamos qué trámite seguir, qué documentos necesitas y dónde presentarlos.",
-    "s3title": "Nosotros te acompañamos",
-    "s3text": "Según el plan elegido, te guiamos, revisamos tu documentación o lo gestionamos todo."
-  },
-  "cta": {
-    "title": "¿Tienes alguna duda?",
-    "subtitle": "Contáctanos y te respondemos en menos de 24 horas.",
-    "btn1": "Contactar ahora",
-    "btn2": "Ver servicios"
-  },
-"tramites": {
-  "hero_title": "Catálogo de Trámites",
-  "hero_sub": "Información oficial, tiempos estimados y documentación necesaria para cada trámite.",
-  "ver_ficha": "Ver ficha completa →",
-  "volver": "← Volver al catálogo",
-  "docs": "Documentación a aportar",
-  "forms": "Formularios oficiales",
-  "where": "Dónde presentar",
-  "links": "Recursos oficiales",
-  "assist_title": "¿Necesitas ayuda con este trámite?",
-  "assist_sub": "Nuestro equipo puede orientarte, revisar tu documentación o gestionarlo todo por ti.",
-  "assist_btn": "Ver niveles de asistencia →"
-}}
+  "nav": { "tramites": "Trámites", "servicios": "Servicios", "contacto": "Contacto" },
+  "hero": { "tag": "Especialistas en extranjería · Barcelona", "title": "Tu permiso de residencia,", "titleEm": "sin complicaciones", "subtitle": "Te acompañamos en cada paso de tus trámites de extranjería. Desde 49€. En tu idioma, sin esperas innecesarias.", "cta1": "Ver trámites", "cta2": "Nuestros servicios" },
+  "stats": { "clients": "+500", "clientsLabel": "Clientes atendidos", "foreign": "18,7%", "foreignLabel": "Población extranjera en Catalunya", "langs": "6", "langsLabel": "Idiomas disponibles" },
+  "services": { "label": "Servicios", "title": "Pensado para personas, no para juristas", "subtitle": "Eliminamos la burocracia para que te concentres en lo importante: tu vida en Catalunya.", "f1title": "Guía paso a paso", "f1text": "Exactamente qué documentos necesitas y en qué orden para tu caso concreto.", "f2title": "6 idiomas", "f2text": "Castellano, catalán, inglés, árabe y chino. Sin tecnicismos jurídicos.", "f3title": "Checklist de documentos", "f3text": "Sabes si falta algo antes de ir a la cita.", "f4title": "Alertas de plazos", "f4text": "Recibes aviso cuando se acerca la caducidad de tu permiso.", "f5title": "Asesoría jurídica", "f5text": "Abogados especializados revisan tu caso y te indican el camino correcto.", "f6title": "Seguimiento activo", "f6text": "Monitorizamos tu expediente y te avisamos ante cualquier novedad." },
+  "how": { "label": "Cómo funciona", "title": "Tres pasos para ordenar tus trámites", "s1title": "Cuéntanos tu situación", "s1text": "Rellena un breve formulario sobre tu permiso y qué quieres conseguir.", "s2title": "Recibe tu plan personalizado", "s2text": "Te indicamos qué trámite seguir, qué documentos necesitas y dónde presentarlos.", "s3title": "Nosotros te acompañamos", "s3text": "Según el plan elegido, te guiamos, revisamos tu documentación o lo gestionamos todo." },
+  "cta": { "title": "¿Tienes alguna duda?", "subtitle": "Contáctanos y te respondemos en menos de 24 horas.", "btn1": "Contactar ahora", "btn2": "Ver servicios" },
+  "tramites": {
+    "hero_title": "Catálogo de Trámites",
+    "hero_sub": "Información oficial, tiempos estimados y documentación necesaria para cada trámite.",
+    "ver_ficha": "Ver ficha completa →",
+    "volver": "← Volver al catálogo",
+    "docs": "Documentación a aportar",
+    "forms": "Formularios oficiales",
+    "where": "Dónde presentar",
+    "links": "Recursos oficiales",
+    "assist_title": "¿Necesitas ayuda con este trámite?",
+    "assist_sub": "Nuestro equipo puede orientarte, revisar tu documentación o gestionarlo todo por ti.",
+    "assist_btn": "Ver niveles de asistencia →",
+    "items": {
+      "residencia": { "title": "Autorización de Residencia Temporal", "desc": "Permite vivir legalmente en España entre 90 días y 5 años. Necesario para establecerse y trabajar en Catalunya.", "badge": "Muy solicitado", "chips": ["No comunitarios", "Desde 0"] },
+      "tie": { "title": "Renovación de la Tarjeta de Residencia (TIE)", "desc": "Renueva tu TIE antes de que caduque. Solicítala entre 60 días antes y 90 días después de la caducidad.", "badge": "Recurrente", "chips": ["Residentes", "Renovación"] },
+      "reagrupacion": { "title": "Reagrupación Familiar", "desc": "Permite reunirse con familiares directos si ya tienes residencia legal en España.", "badge": "Frecuente", "chips": ["Residentes", "Familias"] },
+      "nie": { "title": "NIE — Número de Identificación de Extranjero", "desc": "Número imprescindible para cualquier gestión legal, fiscal o laboral en España.", "badge": "Básico", "chips": ["Todos", "Urgente posible"] },
+      "nacionalidad": { "title": "Nacionalidad Española por Residencia", "desc": "Solicita la nacionalidad española tras 10 años de residencia legal (2 años para iberoamericanos).", "badge": "Complejo", "chips": ["Larga duración"] },
+      "trabajo-ajena": { "title": "Autorización de Trabajo por Cuenta Ajena", "desc": "Permiso para trabajar como empleado en España. Generalmente la solicita el empleador.", "badge": "Solicitado", "chips": ["No comunitarios", "Trabajo"] },
+      "trabajo-propia": { "title": "Autorización de Trabajo por Cuenta Propia", "desc": "Permiso para trabajar como autónomo o emprendedor en España siendo ciudadano no comunitario.", "badge": "Autónomos", "chips": ["No comunitarios", "Autónomos"] },
+      "ue": { "title": "Certificado de Registro de Ciudadano UE", "desc": "Registro obligatorio para ciudadanos de la UE que residan en España más de 3 meses.", "badge": "UE", "chips": ["Ciudadanos UE", "Rápido"] }
+    }
+  }
+}

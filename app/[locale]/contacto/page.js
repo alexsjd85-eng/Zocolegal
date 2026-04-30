@@ -1,9 +1,11 @@
 'use client';
 import { useState } from 'react';
+import { useParams } from 'next/navigation';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 
 export default function ContactoPage() {
+  const { locale } = useParams();
   const [sent, setSent] = useState(false);
 
   function submit() {
@@ -43,7 +45,7 @@ export default function ContactoPage() {
               <div className="contact-icon">📞</div>
               <div className="contact-item-text">
                 <div className="label">Teléfono</div>
-                <div className="value">Por confirmar</div>
+                <div className="value">608 332 394</div>
               </div>
             </div>
             <div className="contact-item">
@@ -57,7 +59,7 @@ export default function ContactoPage() {
               <div className="contact-icon">📍</div>
               <div className="contact-item-text">
                 <div className="label">Ubicación</div>
-                <div className="value">Barcelona, Catalunya</div>
+                <div className="value">100% Online</div>
               </div>
             </div>
             <div style={{marginTop:'1.5rem', paddingTop:'1.5rem', borderTop:'1px solid rgba(255,255,255,.15)'}}>
@@ -90,7 +92,7 @@ export default function ContactoPage() {
             <div className="form-group"><label>Mensaje *</label><textarea id="c-mensaje" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea></div>
             <div className="form-check">
               <input type="checkbox" id="c-rgpd" />
-              <label htmlFor="c-rgpd">Acepto la <a href="#">política de privacidad</a> y el tratamiento de mis datos según el RGPD. *</label>
+              <label htmlFor="c-rgpd">Acepto la <a href={`/${locale}/privacidad`}>política de privacidad</a> y el tratamiento de mis datos según el RGPD. *</label>
             </div>
             <div style={{marginTop:'1.25rem'}}>
               <button className="btn-primary" onClick={submit}>Enviar mensaje →</button>
