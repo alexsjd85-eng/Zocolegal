@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "tramites": "Trámites",
+    "servicios": "Servicios",
+    "contacto": "Contacto"
+  },
+  "hero": {
+    "tag": "Especialistas en extranjería · Barcelona",
+    "title": "Tu permiso de residencia,",
+    "titleEm": "sin complicaciones",
+    "subtitle": "Te acompañamos en cada paso de tus trámites de extranjería. Desde 49€. En tu idioma, sin esperas innecesarias.",
+    "cta1": "Ver trámites",
+    "cta2": "Nuestros servicios"
+  },
+  "stats": {
+    "clients": "+500",
+    "clientsLabel": "Clientes atendidos",
+    "foreign": "18,7%",
+    "foreignLabel": "Población extranjera en Catalunya",
+    "langs": "6",
+    "langsLabel": "Idiomas disponibles"
+  },
+  "services": {
+    "label": "Servicios",
+    "title": "Pensado para personas, no para juristas",
+    "subtitle": "Eliminamos la burocracia para que te concentres en lo importante: tu vida en Catalunya."
+  },
+  "how": {
+    "label": "Cómo funciona",
+    "title": "Tres pasos para ordenar tus trámites",
+    "s1title": "Cuéntanos tu situación",
+    "s1text": "Rellena un breve formulario sobre tu permiso y qué quieres conseguir.",
+    "s2title": "Recibe tu plan personalizado",
+    "s2text": "Te indicamos qué trámite seguir, qué documentos necesitas y dónde presentarlos.",
+    "s3title": "Nosotros te acompañamos",
+    "s3text": "Según el plan elegido, te guiamos, revisamos tu documentación o lo gestionamos todo."
+  },
+  "cta": {
+    "title": "¿Tienes alguna duda?",
+    "subtitle": "Contáctanos y te respondemos en menos de 24 horas.",
+    "btn1": "Contactar ahora",
+    "btn2": "Ver servicios"
+  }
+}

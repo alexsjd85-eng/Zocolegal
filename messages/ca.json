@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "tramites": "Tràmits",
+    "servicios": "Serveis",
+    "contacto": "Contacte"
+  },
+  "hero": {
+    "tag": "Especialistes en estrangeria · Barcelona",
+    "title": "El teu permís de residència,",
+    "titleEm": "sense complicacions",
+    "subtitle": "T'acompanyem en cada pas dels teus tràmits d'estrangeria. Des de 49€. En el teu idioma.",
+    "cta1": "Veure tràmits",
+    "cta2": "Els nostres serveis"
+  },
+  "stats": {
+    "clients": "+500",
+    "clientsLabel": "Clients atesos",
+    "foreign": "18,7%",
+    "foreignLabel": "Població estrangera a Catalunya",
+    "langs": "6",
+    "langsLabel": "Idiomes disponibles"
+  },
+  "services": {
+    "label": "Serveis",
+    "title": "Pensat per a persones, no per a juristes",
+    "subtitle": "Eliminem la burocràcia perquè et concentris en el que importa: la teva vida a Catalunya."
+  },
+  "how": {
+    "label": "Com funciona",
+    "title": "Tres passos per ordenar els teus tràmits",
+    "s1title": "Explica'ns la teva situació",
+    "s1text": "Omple un breu formulari sobre el teu permís i el que vols aconseguir.",
+    "s2title": "Rep el teu pla personalitzat",
+    "s2text": "T'indiquem quin tràmit seguir i quins documents necessites.",
+    "s3title": "Nosaltres t'acompanyem",
+    "s3text": "Segons el pla escollit, et guiem o ho gestionem tot."
+  },
+  "cta": {
+    "title": "Tens alguna dubte?",
+    "subtitle": "Contacta'ns i et responem en menys de 24 hores.",
+    "btn1": "Contactar ara",
+    "btn2": "Veure serveis"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "tramites": "Procedures",
+    "servicios": "Services",
+    "contacto": "Contact"
+  },
+  "hero": {
+    "tag": "Immigration specialists · Barcelona",
+    "title": "Your residence permit,",
+    "titleEm": "without complications",
+    "subtitle": "We guide you through every step of your immigration process. From €49. In your language.",
+    "cta1": "See procedures",
+    "cta2": "Our services"
+  },
+  "stats": {
+    "clients": "+500",
+    "clientsLabel": "Clients served",
+    "foreign": "18,7%",
+    "foreignLabel": "Foreign population in Catalonia",
+    "langs": "6",
+    "langsLabel": "Available languages"
+  },
+  "services": {
+    "label": "Services",
+    "title": "Built for people, not lawyers",
+    "subtitle": "We remove the bureaucracy so you can focus on what matters: your life in Catalonia."
+  },
+  "how": {
+    "label": "How it works",
+    "title": "Three steps to sort your paperwork",
+    "s1title": "Tell us your situation",
+    "s1text": "Fill in a short form about your permit and what you want to achieve.",
+    "s2title": "Get your personalised plan",
+    "s2text": "We tell you which procedure to follow and what documents you need.",
+    "s3title": "We are with you every step",
+    "s3text": "Depending on your plan, we guide you, review your documents or manage everything."
+  },
+  "cta": {
+    "title": "Have any questions?",
+    "subtitle": "Contact us and we will reply within 24 hours.",
+    "btn1": "Contact us",
+    "btn2": "See services"
+  }
+}
