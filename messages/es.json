@@ -1,8 +1,8 @@
 {
   "nav": { "tramites": "Trámites", "servicios": "Servicios", "contacto": "Contacto" },
   "hero": { "tag": "Especialistas en extranjería · Barcelona", "title": "Tu permiso de residencia,", "titleEm": "sin complicaciones", "subtitle": "Te acompañamos en cada paso de tus trámites de extranjería. Desde 49€. En tu idioma, sin esperas innecesarias.", "cta1": "Ver trámites", "cta2": "Nuestros servicios" },
-  "stats": { "clients": "+500", "clientsLabel": "Clientes atendidos", "foreign": "18,7%", "foreignLabel": "Población extranjera en Catalunya", "langs": "6", "langsLabel": "Idiomas disponibles" },
-  "services": { "label": "Servicios", "title": "Pensado para personas, no para juristas", "subtitle": "Eliminamos la burocracia para que te concentres en lo importante: tu vida en Catalunya.", "f1title": "Guía paso a paso", "f1text": "Exactamente qué documentos necesitas y en qué orden para tu caso concreto.", "f2title": "6 idiomas", "f2text": "Castellano, catalán, inglés, árabe y chino. Sin tecnicismos jurídicos.", "f3title": "Checklist de documentos", "f3text": "Sabes si falta algo antes de ir a la cita.", "f4title": "Alertas de plazos", "f4text": "Recibes aviso cuando se acerca la caducidad de tu permiso.", "f5title": "Asesoría jurídica", "f5text": "Abogados especializados revisan tu caso y te indican el camino correcto.", "f6title": "Seguimiento activo", "f6text": "Monitorizamos tu expediente y te avisamos ante cualquier novedad." },
+  "stats": { "clients": "+500", "clientsLabel": "Clientes atendidos", "foreign": "18,7%", "foreignLabel": "Población extranjera en Catalunya", "langs": "5", "langsLabel": "Idiomas disponibles" },
+  "services": { "label": "Servicios", "title": "Pensado para personas, no para juristas", "subtitle": "Eliminamos la burocracia para que te concentres en lo importante: tu vida en Catalunya.", "f1title": "Guía paso a paso", "f1text": "Exactamente qué documentos necesitas y en qué orden para tu caso concreto.", "f2title": "5 idiomas", "f2text": "Castellano, catalán, inglés, árabe y chino. Sin tecnicismos jurídicos.", "f3title": "Checklist de documentos", "f3text": "Sabes si falta algo antes de ir a la cita.", "f4title": "Alertas de plazos", "f4text": "Recibes aviso cuando se acerca la caducidad de tu permiso.", "f5title": "Asesoría jurídica", "f5text": "Abogados especializados revisan tu caso y te indican el camino correcto.", "f6title": "Seguimiento activo", "f6text": "Monitorizamos tu expediente y te avisamos ante cualquier novedad." },
   "how": { "label": "Cómo funciona", "title": "Tres pasos para ordenar tus trámites", "s1title": "Cuéntanos tu situación", "s1text": "Rellena un breve formulario sobre tu permiso y qué quieres conseguir.", "s2title": "Recibe tu plan personalizado", "s2text": "Te indicamos qué trámite seguir, qué documentos necesitas y dónde presentarlos.", "s3title": "Nosotros te acompañamos", "s3text": "Según el plan elegido, te guiamos, revisamos tu documentación o lo gestionamos todo." },
   "cta": { "title": "¿Tienes alguna duda?", "subtitle": "Contáctanos y te respondemos en menos de 24 horas.", "btn1": "Contactar ahora", "btn2": "Ver servicios" },
   "tramites": {
@@ -27,5 +27,19 @@
       "trabajo-propia": { "title": "Autorización de Trabajo por Cuenta Propia", "desc": "Permiso para trabajar como autónomo o emprendedor en España siendo ciudadano no comunitario.", "badge": "Autónomos", "chips": ["No comunitarios", "Autónomos"] },
       "ue": { "title": "Certificado de Registro de Ciudadano UE", "desc": "Registro obligatorio para ciudadanos de la UE que residan en España más de 3 meses.", "badge": "UE", "chips": ["Ciudadanos UE", "Rápido"] }
     }
+  },
+  "faq": {
+    "label": "Preguntas frecuentes",
+    "title": "Lo que más nos preguntan",
+    "items": [
+      { "q": "¿Cuánto tiempo tarda en resolverse mi trámite?", "a": "Depende del tipo de trámite. Un NIE puede resolverse en 1–4 semanas, mientras que una autorización de residencia puede tardar entre 3 y 6 meses. Te informamos del plazo estimado al inicio de cada gestión." },
+      { "q": "¿Necesito venir en persona a una oficina?", "a": "No. Trabajamos 100% online. Puedes enviarnos toda la documentación por medios digitales y nosotros realizamos las gestiones en tu nombre." },
+      { "q": "¿En qué idiomas podéis atenderme?", "a": "Atendemos en castellano, catalán, inglés, árabe y chino mandarín. Elige el idioma con el que te sientas más cómodo." },
+      { "q": "¿Qué pasa si me falta algún documento?", "a": "Te lo comunicamos de inmediato con instrucciones claras sobre cómo obtenerlo. Nunca presentamos tu solicitud incompleta." },
+      { "q": "¿Puedo hacer el trámite yo mismo sin contrataros?", "a": "Sí, puedes intentarlo. En nuestra web encontrarás toda la información oficial y los formularios. Si prefieres seguridad y ahorro de tiempo, nuestros planes empiezan desde 49€." },
+      { "q": "¿Qué incluye el número de caso?", "a": "Al iniciar cualquier gestión con nosotros recibes un número de caso único con el que puedes consultar el estado de tu expediente en tiempo real." },
+      { "q": "¿Trabajáis con empresas que necesitan gestionar varios empleados extranjeros?", "a": "Sí. Ofrecemos tarifas y planes específicos para empresas con necesidades recurrentes de autorizaciones de trabajo y residencia para sus empleados." },
+      { "q": "¿Qué diferencia hay entre el plan Orientación y el plan Revisión Profesional?", "a": "El plan Orientación te proporciona una guía personalizada y el listado exacto de documentos para tu caso. El plan Revisión Profesional añade la revisión completa de tu documentación por un experto antes de presentarla." }
+    ]
   }
 }

@@ -4,7 +4,13 @@
       "Bash(npm run *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "WebSearch",
+      "WebFetch(domain:www.inclusion.gob.es)",
+      "WebFetch(domain:extranjeros.inclusion.gob.es)",
+      "WebFetch(domain:gestoriamorey.com)",
+      "WebFetch(domain:infoextranjeria.org)",
+      "WebFetch(domain:legalteam.es)"
     ]
   }
 }

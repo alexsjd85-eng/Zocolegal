@@ -1,58 +1,10 @@
 {
-  "nav": {
-    "tramites": "Tràmits",
-    "servicios": "Serveis",
-    "contacto": "Contacte"
-  },
-  "hero": {
-    "tag": "Especialistes en estrangeria · Barcelona",
-    "title": "El teu permís de residència,",
-    "titleEm": "sense complicacions",
-    "subtitle": "T'acompanyem en cada pas dels teus tràmits d'estrangeria. Des de 49€. En el teu idioma.",
-    "cta1": "Veure tràmits",
-    "cta2": "Els nostres serveis"
-  },
-  "stats": {
-    "clients": "+500",
-    "clientsLabel": "Clients atesos",
-    "foreign": "18,7%",
-    "foreignLabel": "Població estrangera a Catalunya",
-    "langs": "6",
-    "langsLabel": "Idiomes disponibles"
-  },
-  "services": {
-    "label": "Serveis",
-    "title": "Pensat per a persones, no per a juristes",
-    "subtitle": "Eliminem la burocràcia perquè et concentris en el que importa: la teva vida a Catalunya.",
-    "f1title": "Guia pas a pas",
-    "f1text": "Exactament quins documents necessites i en quin ordre per al teu cas concret.",
-    "f2title": "6 idiomes",
-    "f2text": "Castellà, català, anglès, àrab i xinès. Sense tecnicismes jurídics.",
-    "f3title": "Checklist de documents",
-    "f3text": "Saps si falta alguna cosa abans d'anar a la cita.",
-    "f4title": "Alertes de terminis",
-    "f4text": "Reps avís quan s'acosta la caducitat del teu permís.",
-    "f5title": "Assessoria jurídica",
-    "f5text": "Advocats especialitzats revisen el teu cas i t'indiquen el camí correcte.",
-    "f6title": "Seguiment actiu",
-    "f6text": "Monitoritzem el teu expedient i t'avisem davant qualsevol novetat."
-  },
-  "how": {
-    "label": "Com funciona",
-    "title": "Tres passos per ordenar els teus tràmits",
-    "s1title": "Explica'ns la teva situació",
-    "s1text": "Omple un breu formulari sobre el teu permís i el que vols aconseguir.",
-    "s2title": "Rep el teu pla personalitzat",
-    "s2text": "T'indiquem quin tràmit seguir i quins documents necessites.",
-    "s3title": "Nosaltres t'acompanyem",
-    "s3text": "Segons el pla escollit, et guiem o ho gestionem tot."
-  },
-  "cta": {
-    "title": "Tens alguna dubte?",
-    "subtitle": "Contacta'ns i et responem en menys de 24 hores.",
-    "btn1": "Contactar ara",
-    "btn2": "Veure serveis"
-  },
+  "nav": { "tramites": "Tràmits", "servicios": "Serveis", "contacto": "Contacte" },
+  "hero": { "tag": "Especialistes en estrangeria · Barcelona", "title": "El teu permís de residència,", "titleEm": "sense complicacions", "subtitle": "T'acompanyem en cada pas dels teus tràmits d'estrangeria. Des de 49€. En el teu idioma.", "cta1": "Veure tràmits", "cta2": "Els nostres serveis" },
+  "stats": { "clients": "+500", "clientsLabel": "Clients atesos", "foreign": "18,7%", "foreignLabel": "Població estrangera a Catalunya", "langs": "5", "langsLabel": "Idiomes disponibles" },
+  "services": { "label": "Serveis", "title": "Pensat per a persones, no per a juristes", "subtitle": "Eliminem la burocràcia perquè et concentris en el que importa: la teva vida a Catalunya.", "f1title": "Guia pas a pas", "f1text": "Exactament quins documents necessites i en quin ordre per al teu cas concret.", "f2title": "5 idiomes", "f2text": "Castellà, català, anglès, àrab i xinès. Sense tecnicismes jurídics.", "f3title": "Checklist de documents", "f3text": "Saps si falta alguna cosa abans d'anar a la cita.", "f4title": "Alertes de terminis", "f4text": "Reps avís quan s'acosta la caducitat del teu permís.", "f5title": "Assessoria jurídica", "f5text": "Advocats especialitzats revisen el teu cas i t'indiquen el camí correcte.", "f6title": "Seguiment actiu", "f6text": "Monitoritzem el teu expedient i t'avisem davant qualsevol novetat." },
+  "how": { "label": "Com funciona", "title": "Tres passos per ordenar els teus tràmits", "s1title": "Explica'ns la teva situació", "s1text": "Omple un breu formulari sobre el teu permís i el que vols aconseguir.", "s2title": "Rep el teu pla personalitzat", "s2text": "T'indiquem quin tràmit seguir i quins documents necessites.", "s3title": "Nosaltres t'acompanyem", "s3text": "Segons el pla escollit, et guiem o ho gestionem tot." },
+  "cta": { "title": "Tens alguna dubte?", "subtitle": "Contacta'ns i et responem en menys de 24 hores.", "btn1": "Contactar ara", "btn2": "Veure serveis" },
   "tramites": {
     "hero_title": "Catàleg de Tràmits",
     "hero_sub": "Informació oficial, temps estimats i documentació necessària per a cada tràmit.",
@@ -75,5 +27,19 @@
       "trabajo-propia": { "title": "Autorització de Treball per Compte Propi", "desc": "Permís per treballar com a autònom o emprenedor a Espanya sent ciutadà no comunitari.", "badge": "Autònoms", "chips": ["No comunitaris", "Autònoms"] },
       "ue": { "title": "Certificat de Registre de Ciutadà UE", "desc": "Registre obligatori per a ciutadans de la UE que resideixin a Espanya més de 3 mesos.", "badge": "UE", "chips": ["Ciutadans UE", "Ràpid"] }
     }
+  },
+  "faq": {
+    "label": "Preguntes freqüents",
+    "title": "El que més ens pregunten",
+    "items": [
+      { "q": "Quant de temps tarda a resoldre's el meu tràmit?", "a": "Depèn del tipus de tràmit. Un NIE pot resoldre's en 1–4 setmanes, mentre que una autorització de residència pot trigar entre 3 i 6 mesos. T'informem del termini estimat a l'inici de cada gestió." },
+      { "q": "Necessito venir en persona a una oficina?", "a": "No. Treballem 100% en línia. Pots enviar-nos tota la documentació per mitjans digitals i nosaltres fem les gestions en nom teu." },
+      { "q": "En quins idiomes podeu atendre'm?", "a": "Atenem en castellà, català, anglès, àrab i xinès mandarí. Tria l'idioma amb el qual et sentis més còmode." },
+      { "q": "Què passa si em falta algun document?", "a": "T'ho comuniquem de seguida amb instruccions clares sobre com obtenir-lo. Mai presentem la teva sol·licitud incompleta." },
+      { "q": "Puc fer el tràmit jo mateix sense contractar-vos?", "a": "Sí, pots intentar-ho. Al nostre web trobaràs tota la informació oficial i els formularis. Si prefereixes seguretat i estalvi de temps, els nostres plans comencen des de 49€." },
+      { "q": "Què inclou el número de cas?", "a": "En iniciar qualsevol gestió amb nosaltres reps un número de cas únic amb el qual pots consultar l'estat del teu expedient en temps real." },
+      { "q": "Treballeu amb empreses que necessiten gestionar diversos empleats estrangers?", "a": "Sí. Oferim tarifes i plans específics per a empreses amb necessitats recurrents d'autoritzacions de treball i residència per als seus empleats." },
+      { "q": "Quina diferència hi ha entre el pla Orientació i el pla Revisió Professional?", "a": "El pla Orientació et proporciona una guia personalitzada i el llistat exacte de documents per al teu cas. El pla Revisió Professional hi afegeix la revisió completa de la teva documentació per un expert abans de presentar-la." }
+    ]
   }
 }

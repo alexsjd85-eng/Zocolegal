@@ -1,8 +1,8 @@
 {
   "nav": { "tramites": "Procedures", "servicios": "Services", "contacto": "Contact" },
   "hero": { "tag": "Immigration specialists · Barcelona", "title": "Your residence permit,", "titleEm": "without complications", "subtitle": "We guide you through every step of your immigration process. From €49. In your language.", "cta1": "See procedures", "cta2": "Our services" },
-  "stats": { "clients": "+500", "clientsLabel": "Clients served", "foreign": "18.7%", "foreignLabel": "Foreign population in Catalonia", "langs": "6", "langsLabel": "Available languages" },
-  "services": { "label": "Services", "title": "Built for people, not lawyers", "subtitle": "We remove the bureaucracy so you can focus on what matters: your life in Catalonia.", "f1title": "Step-by-step guide", "f1text": "Exactly what documents you need and in what order for your specific case.", "f2title": "6 languages", "f2text": "Spanish, Catalan, English, Arabic and Chinese. No legal jargon.", "f3title": "Document checklist", "f3text": "Know if anything is missing before your appointment.", "f4title": "Deadline alerts", "f4text": "Get notified when your permit is about to expire.", "f5title": "Legal advice", "f5text": "Specialized lawyers review your case and guide you.", "f6title": "Active tracking", "f6text": "We monitor your file and alert you to any news." },
+  "stats": { "clients": "+500", "clientsLabel": "Clients served", "foreign": "18.7%", "foreignLabel": "Foreign population in Catalonia", "langs": "5", "langsLabel": "Available languages" },
+  "services": { "label": "Services", "title": "Built for people, not lawyers", "subtitle": "We remove the bureaucracy so you can focus on what matters: your life in Catalonia.", "f1title": "Step-by-step guide", "f1text": "Exactly what documents you need and in what order for your specific case.", "f2title": "5 languages", "f2text": "Spanish, Catalan, English, Arabic and Chinese. No legal jargon.", "f3title": "Document checklist", "f3text": "Know if anything is missing before your appointment.", "f4title": "Deadline alerts", "f4text": "Get notified when your permit is about to expire.", "f5title": "Legal advice", "f5text": "Specialized lawyers review your case and guide you.", "f6title": "Active tracking", "f6text": "We monitor your file and alert you to any news." },
   "how": { "label": "How it works", "title": "Three steps to sort your paperwork", "s1title": "Tell us your situation", "s1text": "Fill in a short form about your permit and what you want to achieve.", "s2title": "Get your personalised plan", "s2text": "We tell you which procedure to follow and what documents you need.", "s3title": "We are with you every step", "s3text": "Depending on your plan, we guide you, review your documents or manage everything." },
   "cta": { "title": "Have any questions?", "subtitle": "Contact us and we will reply within 24 hours.", "btn1": "Contact us", "btn2": "See services" },
   "tramites": {
@@ -27,5 +27,19 @@
       "trabajo-propia": { "title": "Work Permit — Self-employed", "desc": "Permit to work as a freelancer or entrepreneur in Spain as a non-EU citizen.", "badge": "Self-employed", "chips": ["Non-EU citizens", "Freelance"] },
       "ue": { "title": "EU Citizen Registration Certificate", "desc": "Mandatory registration for EU citizens residing in Spain for more than 3 months.", "badge": "EU", "chips": ["EU citizens", "Fast"] }
     }
+  },
+  "faq": {
+    "label": "Frequently asked questions",
+    "title": "What people ask us most",
+    "items": [
+      { "q": "How long does my procedure take to be resolved?", "a": "It depends on the type of procedure. An NIE can be resolved in 1–4 weeks, while a residence permit can take between 3 and 6 months. We inform you of the estimated timeframe at the start of each process." },
+      { "q": "Do I need to come in person to an office?", "a": "No. We work 100% online. You can send us all your documentation digitally and we carry out the procedures on your behalf." },
+      { "q": "In which languages can you assist me?", "a": "We provide assistance in Spanish, Catalan, English, Arabic and Mandarin Chinese. Choose whichever language you feel most comfortable with." },
+      { "q": "What happens if I am missing a document?", "a": "We let you know immediately with clear instructions on how to obtain it. We never submit an incomplete application on your behalf." },
+      { "q": "Can I do the procedure myself without hiring you?", "a": "Yes, you can try. Our website provides all the official information and forms. If you prefer certainty and time savings, our plans start from €49." },
+      { "q": "What does the case number include?", "a": "When you start any procedure with us, you receive a unique case number that lets you check the status of your file in real time." },
+      { "q": "Do you work with companies that need to manage multiple foreign employees?", "a": "Yes. We offer specific rates and plans for companies with recurring needs for work and residence authorisations for their employees." },
+      { "q": "What is the difference between the Orientation plan and the Professional Review plan?", "a": "The Orientation plan provides a personalised guide and the exact list of documents for your case. The Professional Review plan adds a full review of your documentation by an expert before it is submitted." }
+    ]
   }
 }
