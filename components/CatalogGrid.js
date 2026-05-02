@@ -46,7 +46,7 @@ export default function CatalogGrid({ tramites }) {
               <div className="catalog-body">
                 <p>{desc}</p>
                 <div className="catalog-meta">
-                  <span className="catalog-chip">⏱ {item.time}</span>
+                  <span className="catalog-chip">⏱ {item.time_i18n?.[locale] || item.time}</span>
                   {chips.map(c => <span key={c} className="catalog-chip">{c}</span>)}
                 </div>
                 <button className="btn-primary btn-full">{t('ver_ficha')}</button>

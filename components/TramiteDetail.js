@@ -1,15 +1,19 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
-export default function TramiteDetail({ tramite: t2, onBack, locale }) {
+export default function TramiteDetail({ tramite: t2, onBack, locale: localeProp }) {
   const t = useTranslations('tramites');
   const router = useRouter();
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || localeProp || 'es';
 
   const i18n = t2.i18n?.[locale] || {};
-  const docs = i18n.docs || t2.docs;
+  const docs  = i18n.docs  || t2.docs;
+  const forms = i18n.forms || t2.forms;
   const where = i18n.where || t2.where;
   const links = i18n.links || t2.links;
+  const time  = t2.time_i18n?.[locale] || t2.time;
 
   return (
     <>
@@ -21,7 +25,7 @@ export default function TramiteDetail({ tramite: t2, onBack, locale }) {
         </div>
       </div>
       <section className="section">
-        <div className="time-badge">⏱ {t2.time}</div>
+        <div className="time-badge">⏱ {time}</div>
         <div className="detail-grid">
           <div className="detail-card">
             <h3>📄 {t('docs')}</h3>
@@ -31,7 +35,7 @@ export default function TramiteDetail({ tramite: t2, onBack, locale }) {
           </div>
           <div className="detail-card">
             <h3>📋 {t('forms')}</h3>
-            {t2.forms.map((f, i) => (
+            {forms.map((f, i) => (
               <a key={i} href={f.url} target="_blank" className="detail-link">
                 {f.name} <span className="ext">↗</span>
               </a>
