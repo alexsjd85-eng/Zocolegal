@@ -6,6 +6,11 @@ export default function TramiteDetail({ tramite: t2, onBack, locale }) {
   const t = useTranslations('tramites');
   const router = useRouter();
 
+  const i18n = t2.i18n?.[locale] || {};
+  const docs = i18n.docs || t2.docs;
+  const where = i18n.where || t2.where;
+  const links = i18n.links || t2.links;
+
   return (
     <>
       <div className="detail-hero">
@@ -21,7 +26,7 @@ export default function TramiteDetail({ tramite: t2, onBack, locale }) {
           <div className="detail-card">
             <h3>📄 {t('docs')}</h3>
             <ul className="detail-list">
-              {t2.docs.map((d, i) => <li key={i}>{d}</li>)}
+              {docs.map((d, i) => <li key={i}>{d}</li>)}
             </ul>
           </div>
           <div className="detail-card">
@@ -34,7 +39,7 @@ export default function TramiteDetail({ tramite: t2, onBack, locale }) {
           </div>
           <div className="detail-card">
             <h3>📍 {t('where')}</h3>
-            {t2.where.map((w, i) => (
+            {where.map((w, i) => (
               <a key={i} href={w.url} target="_blank" className="detail-link">
                 📍 {w.name} <span className="ext">↗</span>
               </a>
@@ -42,7 +47,7 @@ export default function TramiteDetail({ tramite: t2, onBack, locale }) {
           </div>
           <div className="detail-card">
             <h3>🔗 {t('links')}</h3>
-            {t2.links.map((l, i) => (
+            {links.map((l, i) => (
               <a key={i} href={l.url} target="_blank" className="detail-link">
                 {l.name} <span className="ext">↗</span>
               </a>
