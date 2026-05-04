@@ -40,6 +40,8 @@ export default function Nav() {
         <ul className="nav-links">
           <li><Link href={`/${currentLocale}/tramites`}>{t('tramites')}</Link></li>
           <li><Link href={`/${currentLocale}/servicios`}>{t('servicios')}</Link></li>
+          <li><Link href={`/${currentLocale}/faq`}>{t('faq')}</Link></li>
+          <li><Link href={`/${currentLocale}/testimonios`}>{t('testimonios')}</Link></li>
           <li><Link href={`/${currentLocale}/contacto`}>{t('contacto')}</Link></li>
         </ul>
         <div className="lang-sw">

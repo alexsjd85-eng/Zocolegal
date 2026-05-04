@@ -1,5 +1,5 @@
 {
-  "nav": { "tramites": "Procedures", "servicios": "Services", "contacto": "Contact" },
+  "nav": { "tramites": "Procedures", "servicios": "Services", "faq": "FAQ", "testimonios": "Testimonials", "contacto": "Contact" },
   "hero": { "tag": "Immigration specialists · Barcelona", "title": "Your residence permit,", "titleEm": "without complications", "subtitle": "We guide you through every step of your immigration process. From €49. In your language.", "cta1": "See procedures", "cta2": "Our services" },
   "stats": { "clients": "+500", "clientsLabel": "Clients served", "foreign": "18.7%", "foreignLabel": "Foreign population in Catalonia", "langs": "5", "langsLabel": "Available languages" },
   "services": { "label": "Services", "title": "Built for people, not lawyers", "subtitle": "We remove the bureaucracy so you can focus on what matters: your life in Catalonia.", "f1title": "Step-by-step guide", "f1text": "Exactly what documents you need and in what order for your specific case.", "f2title": "5 languages", "f2text": "Spanish, Catalan, English, Arabic and Chinese. No legal jargon.", "f3title": "Document checklist", "f3text": "Know if anything is missing before your appointment.", "f4title": "Deadline alerts", "f4text": "Get notified when your permit is about to expire.", "f5title": "Legal advice", "f5text": "Specialized lawyers review your case and guide you.", "f6title": "Active tracking", "f6text": "We monitor your file and alert you to any news." },
@@ -39,7 +39,11 @@
       { "q": "Can I do the procedure myself without hiring you?", "a": "Yes, you can try. Our website provides all the official information and forms. If you prefer certainty and time savings, our plans start from €49." },
       { "q": "What does the case number include?", "a": "When you start any procedure with us, you receive a unique case number that lets you check the status of your file in real time." },
       { "q": "Do you work with companies that need to manage multiple foreign employees?", "a": "Yes. We offer specific rates and plans for companies with recurring needs for work and residence authorisations for their employees." },
-      { "q": "What is the difference between the Orientation plan and the Professional Review plan?", "a": "The Orientation plan provides a personalised guide and the exact list of documents for your case. The Professional Review plan adds a full review of your documentation by an expert before it is submitted." }
+      { "q": "What is the difference between the Orientation plan and the Professional Review plan?", "a": "The Orientation plan provides a personalised guide and the exact list of documents for your case. The Professional Review plan adds a full review of your documentation by an expert before it is submitted." },
+      { "q": "How much does it cost if my case is complex?", "a": "For complex cases we offer the Full Management plan from €299 and the À la Carte plan with a personalised price based on volume and difficulty. Contact us for a no-commitment quote." },
+      { "q": "What happens if my application is denied?", "a": "We analyse the reason for the denial and evaluate available options: appeal, review or alternative application. Post-denial follow-up is included in the Review and Full Management plans." },
+      { "q": "Do you work across all of Spain or only Catalonia?", "a": "We work across all of Spain, although we specialise in the provinces of Lleida and Barcelona. Electronic procedures are managed regardless of province." },
+      { "q": "How does case tracking work?", "a": "Every client receives a unique case number. You can check the status with us at any time and will receive email notifications for any news or requirements." }
     ]
   }
 }
