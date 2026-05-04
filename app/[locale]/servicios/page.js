@@ -1,5 +1,6 @@
 'use client';
-import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 
@@ -51,7 +52,6 @@ export { planes };
 export default function ServiciosPage() {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
-  const router = useRouter();
 
   return (
     <main>
@@ -76,8 +76,8 @@ export default function ServiciosPage() {
                 {plan.features.map((f, i) => <li key={i}>{f}</li>)}
               </ul>
               {plan.id === 4
-                ? <button className="btn-secondary btn-full" onClick={() => router.push(`/${locale}/contacto`)}>Contactar →</button>
-                : <button className="btn-primary btn-full" onClick={() => router.push(`/${locale}/servicios/solicitar?plan=${encodeURIComponent(plan.name)}`)}>Solicitar →</button>
+                ? <Link href={`/${locale}/contacto`} className="btn-secondary btn-full">Contactar →</Link>
+                : <Link href={`/${locale}/servicios/solicitar?plan=${encodeURIComponent(plan.name)}`} className="btn-primary btn-full">Solicitar →</Link>
               }
             </div>
           ))}

@@ -352,6 +352,20 @@ footer {
 .case-number .cn-code { font-family: var(--font-playfair),serif; font-size: 2rem; color: var(--gold-light); font-weight: 700; }
 .case-number p { font-size: .83rem; opacity: .75; margin-top: .5rem; }
 
+/* FILE UPLOADS */
+.upload-group input[type="file"] {
+  padding: 6px 0; background: none; border: none; box-shadow: none;
+  cursor: pointer; font-size: .82rem; color: var(--ink2); width: auto;
+}
+.upload-group input[type="file"]::-webkit-file-upload-button {
+  background: var(--navy); color: #fff; border: none;
+  padding: 6px 14px; border-radius: 4px; cursor: pointer;
+  font-size: .78rem; margin-right: 10px; letter-spacing: .03em;
+  transition: background .2s;
+}
+.upload-group input[type="file"]::-webkit-file-upload-button:hover { background: var(--navy-dark); }
+.upload-ok { font-size: .78rem; color: var(--navy); font-weight: 600; margin-top: 4px; display: block; }
+
 /* CONTACT */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2.5rem; margin-top: 2rem; }
 .contact-info-card { background: var(--navy); color: #fff; border-radius: var(--r); padding: 2rem; }
@@ -373,6 +387,7 @@ footer {
   .detail-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
 /* CATALOG CARD ALIGNMENT */
 .catalog-grid {
   align-items: stretch;
