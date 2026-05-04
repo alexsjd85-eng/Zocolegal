@@ -1,7 +1,8 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 
@@ -53,6 +54,13 @@ export default function ServiciosPage() {
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
   const router = useRouter();
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    if (selectedPlan && formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [selectedPlan]);
 
   return (
     <main>
@@ -85,7 +93,13 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {selectedPlan && <Questionnaire plan={planes.find(p => p.id === selectedPlan)} locale={locale} onClose={() => setSelectedPlan(null)} />}
+      <AnimatePresence>
+        {selectedPlan && (
+          <div ref={formRef}>
+            <Questionnaire plan={planes.find(p => p.id === selectedPlan)} locale={locale} onClose={() => setSelectedPlan(null)} />
+          </div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </main>
@@ -115,7 +129,13 @@ function Questionnaire({ plan, locale, onClose }) {
   }
 
   return (
-    <section className="section">
+    <motion.section
+      className="section"
+      initial={{ opacity: 0, y: 48 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 24 }}
+      transition={{ duration: 0.45, ease: 'easeOut' }}
+    >
       <div className="form-wrap">
         <h3>Formulario de solicitud</h3>
         <p className="form-sub">Plan seleccionado: <strong>{plan.name} — {plan.price}</strong></p>
@@ -189,6 +209,6 @@ function Questionnaire({ plan, locale, onClose }) {
           </div>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 }
