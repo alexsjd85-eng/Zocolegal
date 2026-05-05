@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { writeToExcel } from '@/lib/writeToExcel';
 
 const BASE = 'https://api.hubapi.com';
 
@@ -126,7 +127,7 @@ export async function POST(req) {
   const {
     nombre, apellido1, apellido2, fechaNacimiento,
     email, telefono, tramite, plan, estado, obs, caseNumber,
-    nie, nacionalidad, pais, localidad,
+    nie, pasaporte, nacionalidad, pais, localidad,
     nombrePadre, nombreMadre, estadoCivil,
     domicilio, numeroPiso, codigoPostal, provincia,
   } = body;
@@ -168,5 +169,19 @@ export async function POST(req) {
   }
 
   console.log('Deal creado correctamente');
+
+  const fecha = new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' });
+  try {
+    await writeToExcel({
+      fecha, caseNumber, nombre, apellido1, apellido2, fechaNacimiento,
+      nie, pasaporte, nacionalidad, email, telefono, tramite, plan, estado, obs,
+      domicilio, numeroPiso, codigoPostal, provincia, pais, localidad,
+      nombrePadre, nombreMadre, estadoCivil,
+    });
+    console.log('Excel actualizado correctamente');
+  } catch (err) {
+    console.error('writeToExcel error (no bloquea flujo):', err.message);
+  }
+
   return NextResponse.json({ ok: true, contact: contactId });
 }
