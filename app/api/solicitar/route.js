@@ -41,32 +41,20 @@ async function hsPatch(path, body) {
 async function upsertContact({
   firstname, lastname, email, phone,
   nie, nacionalidad, tipo_de_tramite, plan_contratado, estado_actual, numero_de_caso,
-  segundo_apellido, fecha_nacimiento, localidad, pais,
-  nombre_padre, nombre_madre, estado_civil,
-  domicilio, numero_piso, codigo_postal, provincia,
+  segundo_apellido,
 }) {
   const properties = {
     firstname,
     lastname,
     email,
     phone: phone || '',
-    nie: nie || '',                         // TODO: crear en HubSpot
-    nacionalidad: nacionalidad || '',       // TODO: crear en HubSpot
-    tipo_de_tramite: tipo_de_tramite || '', // TODO: crear en HubSpot
-    plan_contratado: plan_contratado || '', // TODO: crear en HubSpot
-    estado_actual: estado_actual || '',     // TODO: crear en HubSpot
-    numero_de_caso: numero_de_caso || '',   // TODO: crear en HubSpot
-    segundo_apellido: segundo_apellido || '',  // TODO: crear en HubSpot
-    fecha_nacimiento: fecha_nacimiento || '', // TODO: crear en HubSpot
-    localidad: localidad || '',              // TODO: crear en HubSpot
-    pais: pais || '',                        // TODO: crear en HubSpot
-    nombre_padre: nombre_padre || '',        // TODO: crear en HubSpot
-    nombre_madre: nombre_madre || '',        // TODO: crear en HubSpot
-    estado_civil: estado_civil || '',        // TODO: crear en HubSpot
-    domicilio: domicilio || '',              // TODO: crear en HubSpot
-    numero_piso: numero_piso || '',          // TODO: crear en HubSpot
-    codigo_postal: codigo_postal || '',      // TODO: crear en HubSpot
-    provincia: provincia || '',              // TODO: crear en HubSpot
+    nie: nie || '',                           // TODO: crear en HubSpot
+    nacionalidad: nacionalidad || '',         // TODO: crear en HubSpot
+    tipo_de_tramite: tipo_de_tramite || '',   // TODO: crear en HubSpot
+    plan_contratado: plan_contratado || '',   // TODO: crear en HubSpot
+    estado_actual: estado_actual || '',       // TODO: crear en HubSpot
+    numero_de_caso: numero_de_caso || '',     // TODO: crear en HubSpot
+    segundo_apellido: segundo_apellido || '', // TODO: crear en HubSpot
   };
 
   const { ok, status, data } = await hsPost('/crm/v3/objects/contacts', { properties });
@@ -144,16 +132,6 @@ export async function POST(req) {
     estado_actual: estado || '',
     numero_de_caso: caseNumber || '',
     segundo_apellido: apellido2 || '',
-    fecha_nacimiento: fechaNacimiento || '',
-    localidad: localidad || '',
-    pais: pais || '',
-    nombre_padre: nombrePadre || '',
-    nombre_madre: nombreMadre || '',
-    estado_civil: estadoCivil || '',
-    domicilio: domicilio || '',
-    numero_piso: numeroPiso || '',
-    codigo_postal: codigoPostal || '',
-    provincia: provincia || '',
   });
   if (!contactId) {
     return NextResponse.json({ error: 'contact_failed', detail: contactError }, { status: 502 });
