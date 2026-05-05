@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { writeToExcel } from '@/lib/writeToExcel';
+import { writeToExcel, createExpedienteFolder } from '@/lib/writeToExcel';
 
 const BASE = 'https://api.hubapi.com';
 
@@ -181,6 +181,13 @@ export async function POST(req) {
     console.log('Excel actualizado correctamente');
   } catch (err) {
     console.error('writeToExcel error (no bloquea flujo):', err.message);
+  }
+
+  try {
+    await createExpedienteFolder({ caseNumber, nombre, apellido1 });
+    console.log('Expediente creado en SharePoint');
+  } catch (err) {
+    console.error('createExpedienteFolder error (no bloquea flujo):', err.message);
   }
 
   return NextResponse.json({ ok: true, contact: contactId });
