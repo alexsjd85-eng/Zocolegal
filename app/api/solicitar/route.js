@@ -41,21 +41,12 @@ async function upsertContact({ firstname, lastname, email, phone }) {
   return { id: null, error: data };
 }
 
-async function createDeal(contactId, { dealname, tramite, plan, estado, obs, caseNumber }) {
-  const description = [
-    `Trámite: ${tramite}`,
-    `Plan: ${plan}`,
-    `Estado: ${estado}`,
-    obs ? `Observaciones: ${obs}` : '',
-    `Caso: ${caseNumber}`,
-  ].filter(Boolean).join('\n');
-
+async function createDeal(contactId, { dealname }) {
   const { ok, data } = await hsPost('/crm/v3/objects/deals', {
     properties: {
       dealname,
       pipeline: 'default',
       dealstage: 'appointmentscheduled',
-      description,
     },
     associations: [{
       to: { id: contactId },
@@ -93,10 +84,8 @@ export async function POST(req) {
   }
   console.log('Contacto HubSpot id:', contactId);
 
-  const { ok: dealOk, error: dealError } = await createDeal(contactId, {
-    dealname: `${tramite} — ${plan} (${caseNumber})`,
-    tramite, plan, estado, obs, caseNumber,
-  });
+  const dealname = [tramite, plan, estado, obs, caseNumber].filter(Boolean).join(' · ');
+  const { ok: dealOk, error: dealError } = await createDeal(contactId, { dealname });
   if (!dealOk) {
     console.error('Deal fallido:', dealError);
     return NextResponse.json({ ok: true, contact: contactId, deal_error: dealError });
