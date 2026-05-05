@@ -46,7 +46,7 @@ async function createDeal(contactId, { dealname }) {
     properties: {
       dealname,
       pipeline: 'default',
-      dealstage: 'appointmentscheduled',
+      dealstage: '5301216445',
     },
     associations: [{
       to: { id: contactId },
@@ -84,7 +84,7 @@ export async function POST(req) {
   }
   console.log('Contacto HubSpot id:', contactId);
 
-  const dealname = [tramite, plan, estado, obs, caseNumber].filter(Boolean).join(' · ');
+  const dealname = `Solicitud ${caseNumber}`;
   const { ok: dealOk, error: dealError } = await createDeal(contactId, { dealname });
   if (!dealOk) {
     console.error('Deal fallido:', dealError);
