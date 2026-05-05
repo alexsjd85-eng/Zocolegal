@@ -89,13 +89,22 @@
     "alert_fields": "Si us plau omple tots els camps obligatoris.",
     "alert_rgpd": "Has d'acceptar la política de privacitat."
   },
+  "notfound": {
+    "title": "Pàgina no trobada",
+    "msg": "Ho sentim, aquesta pàgina no existeix.",
+    "btn": "Tornar a l'inici"
+  },
   "testimonios": {
     "page_sub": "El que diuen els qui coneixen el sistema i els qui l'han viscut.",
     "experts_label": "Experts",
     "experts_title": "Veus del sector",
     "experts_sub": "Professionals de l'àmbit jurídic i persones que han passat pel procés migratori.",
     "clients_label": "Clients",
-    "clients_title": "Resultats reals"
+    "clients_title": "Resultats reals",
+    "expert1_role": "Advocat d'estrangeria · Lleida · +4 anys d'experiència",
+    "expert1_quote": "La càrrega administrativa és el major obstacle en aquesta feina. Cada expedient genera desenes de documents, terminis i comunicacions que consumeixen temps que hauria de dedicar-se a l'assessorament jurídic real.",
+    "expert2_role": "Usuari de tràmits d'estrangeria · Barcelona",
+    "expert2_quote": "El procés de regularització és molt difícil d'entendre si no tens algú que te l'expliqui pas a pas i en el teu idioma. La informació oficial existeix, però no està pensada per a qui no coneix el sistema."
   },
   "servicios": {
     "page_title": "Serveis i Preus",

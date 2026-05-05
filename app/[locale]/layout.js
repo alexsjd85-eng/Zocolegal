@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
   weight: ['300', '400', '500', '600']
 });
 
-const locales = ['es', 'ca', 'en', 'ar', 'zh'];
+const locales = ['es', 'ca', 'en', 'ar', 'zh', 'ru', 'uk'];
 
 export function generateStaticParams() {
   return locales.map(locale => ({ locale }));

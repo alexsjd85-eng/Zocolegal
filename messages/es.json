@@ -95,7 +95,16 @@
     "experts_title": "Voces del sector",
     "experts_sub": "Profesionales del ámbito jurídico y personas que han pasado por el proceso migratorio.",
     "clients_label": "Clientes",
-    "clients_title": "Resultados reales"
+    "clients_title": "Resultados reales",
+    "expert1_role": "Abogado de extranjería · Lleida · +4 años de experiencia",
+    "expert1_quote": "La carga administrativa es el mayor obstáculo en este trabajo. Cada expediente genera decenas de documentos, plazos y comunicaciones que consumen tiempo que debería dedicarse al asesoramiento jurídico real.",
+    "expert2_role": "Usuario de trámites de extranjería · Barcelona",
+    "expert2_quote": "El proceso de regularización es muy difícil de entender si no tienes a alguien que te lo explique paso a paso y en tu idioma. La información oficial existe, pero no está pensada para quien no conoce el sistema."
+  },
+  "notfound": {
+    "title": "Página no encontrada",
+    "msg": "Lo sentimos, esta página no existe.",
+    "btn": "Volver al inicio"
   },
   "servicios": {
     "page_title": "Servicios y Precios",

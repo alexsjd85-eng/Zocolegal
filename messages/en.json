@@ -89,13 +89,22 @@
     "alert_fields": "Please fill in all required fields.",
     "alert_rgpd": "You must accept the privacy policy."
   },
+  "notfound": {
+    "title": "Page not found",
+    "msg": "Sorry, this page does not exist.",
+    "btn": "Back to home"
+  },
   "testimonios": {
     "page_sub": "What those who know the system and those who have lived it say.",
     "experts_label": "Experts",
     "experts_title": "Voices from the field",
     "experts_sub": "Legal professionals and people who have gone through the immigration process.",
     "clients_label": "Clients",
-    "clients_title": "Real results"
+    "clients_title": "Real results",
+    "expert1_role": "Immigration lawyer · Lleida · 4+ years of experience",
+    "expert1_quote": "Administrative workload is the biggest obstacle in this job. Each case generates dozens of documents, deadlines and communications that consume time which should be devoted to real legal advice.",
+    "expert2_role": "Immigration procedures user · Barcelona",
+    "expert2_quote": "The regularisation process is very hard to understand if you do not have someone who explains it step by step in your language. The official information exists, but it is not designed for people who do not know the system."
   },
   "servicios": {
     "page_title": "Services & Pricing",

@@ -89,13 +89,22 @@
     "alert_fields": "请填写所有必填字段。",
     "alert_rgpd": "您必须接受隐私政策。"
   },
+  "notfound": {
+    "title": "页面未找到",
+    "msg": "抱歉，此页面不存在。",
+    "btn": "返回首页"
+  },
   "testimonios": {
     "page_sub": "了解系统的人和亲身经历者的心声。",
     "experts_label": "专家",
     "experts_title": "行业声音",
     "experts_sub": "法律专业人士和亲历移民过程的人士。",
     "clients_label": "客户",
-    "clients_title": "真实成果"
+    "clients_title": "真实成果",
+    "expert1_role": "移民律师 · 莱里达 · 4年以上经验",
+    "expert1_quote": "行政负担是这份工作中最大的障碍。每个案件都会产生数十份文件、截止日期和通知，而这些时间本应用于真正的法律咨询。",
+    "expert2_role": "移民手续用户 · 巴塞罗那",
+    "expert2_quote": "如果没有人用您的语言一步一步地向您解释，正规化程序非常难以理解。官方信息是存在的，但它并不是为不了解这个体系的人设计的。"
   },
   "servicios": {
     "page_title": "服务与价格",

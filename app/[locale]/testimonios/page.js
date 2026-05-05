@@ -3,19 +3,9 @@ import { useTranslations } from 'next-intl';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 
-const expertos = [
-  {
-    name: 'Josep Maria Giménez Sentís',
-    role: 'Abogado de extranjería · Lleida · +4 años de experiencia',
-    quote: 'La carga administrativa es el mayor obstáculo en este trabajo. Cada expediente genera decenas de documentos, plazos y comunicaciones que consumen tiempo que debería dedicarse al asesoramiento jurídico real.',
-    stars: 5,
-  },
-  {
-    name: 'Sihang Chen',
-    role: 'Usuario de trámites de extranjería · Barcelona',
-    quote: 'El proceso de regularización es muy difícil de entender si no tienes a alguien que te lo explique paso a paso y en tu idioma. La información oficial existe, pero no está pensada para quien no conoce el sistema.',
-    stars: 5,
-  },
+const EXPERTS = [
+  { name: 'Josep Maria Giménez Sentís', roleKey: 'expert1_role', quoteKey: 'expert1_quote', stars: 5 },
+  { name: 'Sihang Chen',                roleKey: 'expert2_role', quoteKey: 'expert2_quote', stars: 5 },
 ];
 
 const clientes = [
@@ -54,11 +44,11 @@ export default function TestimoniosPage() {
         <h2 className="sec-title">{t('experts_title')}</h2>
         <p className="sec-sub">{t('experts_sub')}</p>
         <div className="testi-grid">
-          {expertos.map(e => (
+          {EXPERTS.map(e => (
             <div key={e.name} className="testi-card expert-card">
-              <p className="testi-quote">"{e.quote}"</p>
+              <p className="testi-quote">"{t(e.quoteKey)}"</p>
               <div className="testi-name">{e.name}</div>
-              <div className="testi-role">{e.role}</div>
+              <div className="testi-role">{t(e.roleKey)}</div>
               <Stars count={e.stars} />
             </div>
           ))}

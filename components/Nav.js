@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const locales = [
   { code: 'es', label: '🇪🇸 ES' },
-  { code: 'ca', label: 'CA' },
+  { code: 'ca', label: '🇨🇦 CA' },
   { code: 'en', label: '🇬🇧 EN' },
   { code: 'ar', label: '🇸🇦 عربي' },
   { code: 'zh', label: '🇨🇳 中文' },
