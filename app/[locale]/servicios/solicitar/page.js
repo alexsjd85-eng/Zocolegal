@@ -27,9 +27,12 @@ function SolicitarContent() {
   const planKey = PLAN_KEYS[planId] || 'orientacion';
 
   const [form, setForm] = useState({
-    nombre: '', nacimiento: '', nacionalidad: '', nie: '',
-    pasaporte: '', caducidad: '', email: '', telefono: '',
-    domicilio: '', cp: '', poblacion: '', provincia: '',
+    nombre: '', apellido1: '', apellido2: '',
+    fechaNacimiento: '', nacionalidad: '', nie: '',
+    pasaporte: '', caducidad: '', pais: '', localidad: '',
+    nombrePadre: '', nombreMadre: '', estadoCivil: '',
+    email: '', telefono: '',
+    domicilio: '', numeroPiso: '', codigoPostal: '', poblacion: '', provincia: '',
     tramite: '', estado: '', obs: '', rgpd: false,
   });
   const [files, setFiles] = useState({});
@@ -49,7 +52,7 @@ function SolicitarContent() {
   const planNameES = PLAN_ES[planId] || 'Solo Orientación';
 
   async function submit() {
-    const required = ['nombre', 'pasaporte', 'email', 'telefono', 'domicilio', 'cp', 'poblacion', 'provincia', 'tramite', 'estado'];
+    const required = ['nombre', 'apellido1', 'pasaporte', 'email', 'telefono', 'localidad', 'pais', 'estadoCivil', 'domicilio', 'codigoPostal', 'poblacion', 'provincia', 'tramite', 'estado'];
     for (const k of required) {
       if (!form[k]) {
         alert(t('alert_required'));
@@ -108,9 +111,21 @@ function SolicitarContent() {
                 value={form.nombre} onChange={e => set('nombre', e.target.value)} />
             </div>
             <div className="form-group">
+              <label>{t('apellido1')}</label>
+              <input id="q-apellido1" type="text" placeholder={t('apellido1_ph')}
+                value={form.apellido1} onChange={e => set('apellido1', e.target.value)} />
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>{t('apellido2')}</label>
+              <input id="q-apellido2" type="text" placeholder={t('apellido2_ph')}
+                value={form.apellido2} onChange={e => set('apellido2', e.target.value)} />
+            </div>
+            <div className="form-group">
               <label>{t('birthdate')}</label>
-              <input id="q-nacimiento" type="date"
-                value={form.nacimiento} onChange={e => set('nacimiento', e.target.value)} />
+              <input id="q-fechaNacimiento" type="date"
+                value={form.fechaNacimiento} onChange={e => set('fechaNacimiento', e.target.value)} />
             </div>
           </div>
           <div className="form-row">
@@ -137,6 +152,41 @@ function SolicitarContent() {
                 value={form.caducidad} onChange={e => set('caducidad', e.target.value)} />
             </div>
           </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>{t('pais')}</label>
+              <input id="q-pais" type="text" placeholder={t('pais_ph')}
+                value={form.pais} onChange={e => set('pais', e.target.value)} />
+            </div>
+            <div className="form-group">
+              <label>{t('localidad')}</label>
+              <input id="q-localidad" type="text" placeholder={t('localidad_ph')}
+                value={form.localidad} onChange={e => set('localidad', e.target.value)} />
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>{t('nombre_padre')}</label>
+              <input id="q-nombrePadre" type="text" placeholder={t('nombre_padre_ph')}
+                value={form.nombrePadre} onChange={e => set('nombrePadre', e.target.value)} />
+            </div>
+            <div className="form-group">
+              <label>{t('nombre_madre')}</label>
+              <input id="q-nombreMadre" type="text" placeholder={t('nombre_madre_ph')}
+                value={form.nombreMadre} onChange={e => set('nombreMadre', e.target.value)} />
+            </div>
+          </div>
+          <div className="form-group">
+            <label>{t('estado_civil')}</label>
+            <select id="q-estadoCivil" value={form.estadoCivil} onChange={e => set('estadoCivil', e.target.value)}>
+              <option value="">{t('estado_civil_ph')}</option>
+              <option value="Soltero/a">{t('civil_soltero')}</option>
+              <option value="Casado/a">{t('civil_casado')}</option>
+              <option value="Viudo/a">{t('civil_viudo')}</option>
+              <option value="Divorciado/a">{t('civil_divorciado')}</option>
+              <option value="Separado/a">{t('civil_separado')}</option>
+            </select>
+          </div>
 
           <div className="form-section-title">{t('contact_data')}</div>
           <div className="form-row">
@@ -158,20 +208,27 @@ function SolicitarContent() {
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label>{t('zip')}</label>
-              <input id="q-cp" type="text" placeholder={t('zip_ph')}
-                value={form.cp} onChange={e => set('cp', e.target.value)} />
+              <label>{t('numero_piso')}</label>
+              <input id="q-numeroPiso" type="text" placeholder={t('numero_piso_ph')}
+                value={form.numeroPiso} onChange={e => set('numeroPiso', e.target.value)} />
             </div>
+            <div className="form-group">
+              <label>{t('zip')}</label>
+              <input id="q-codigoPostal" type="text" placeholder={t('zip_ph')}
+                value={form.codigoPostal} onChange={e => set('codigoPostal', e.target.value)} />
+            </div>
+          </div>
+          <div className="form-row">
             <div className="form-group">
               <label>{t('city')}</label>
               <input id="q-poblacion" type="text" placeholder={t('city_ph')}
                 value={form.poblacion} onChange={e => set('poblacion', e.target.value)} />
             </div>
-          </div>
-          <div className="form-group">
-            <label>{t('province')}</label>
-            <input id="q-provincia" type="text" placeholder={t('province_ph')}
-              value={form.provincia} onChange={e => set('provincia', e.target.value)} />
+            <div className="form-group">
+              <label>{t('province')}</label>
+              <input id="q-provincia" type="text" placeholder={t('province_ph')}
+                value={form.provincia} onChange={e => set('provincia', e.target.value)} />
+            </div>
           </div>
 
           <div className="form-section-title">{t('tramite_data')}</div>

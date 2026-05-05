@@ -37,15 +37,35 @@ async function hsPatch(path, body) {
   return { ok: res.ok, status: res.status, data };
 }
 
-async function upsertContact({ firstname, lastname, email, phone, nie, nacionalidad, tipo_de_tramite, plan_contratado, estado_actual, numero_de_caso }) {
+async function upsertContact({
+  firstname, lastname, email, phone,
+  nie, nacionalidad, tipo_de_tramite, plan_contratado, estado_actual, numero_de_caso,
+  segundo_apellido, fecha_nacimiento, localidad, pais,
+  nombre_padre, nombre_madre, estado_civil,
+  domicilio, numero_piso, codigo_postal, provincia,
+}) {
   const properties = {
-    firstname, lastname, email, phone: phone || '',
-    nie: nie || '',
-    nacionalidad: nacionalidad || '',
-    tipo_de_tramite: tipo_de_tramite || '',
-    plan_contratado: plan_contratado || '',
-    estado_actual: estado_actual || '',
-    numero_de_caso: numero_de_caso || '',
+    firstname,
+    lastname,
+    email,
+    phone: phone || '',
+    nie: nie || '',                         // TODO: crear en HubSpot
+    nacionalidad: nacionalidad || '',       // TODO: crear en HubSpot
+    tipo_de_tramite: tipo_de_tramite || '', // TODO: crear en HubSpot
+    plan_contratado: plan_contratado || '', // TODO: crear en HubSpot
+    estado_actual: estado_actual || '',     // TODO: crear en HubSpot
+    numero_de_caso: numero_de_caso || '',   // TODO: crear en HubSpot
+    segundo_apellido: segundo_apellido || '',  // TODO: crear en HubSpot
+    fecha_nacimiento: fecha_nacimiento || '', // TODO: crear en HubSpot
+    localidad: localidad || '',              // TODO: crear en HubSpot
+    pais: pais || '',                        // TODO: crear en HubSpot
+    nombre_padre: nombre_padre || '',        // TODO: crear en HubSpot
+    nombre_madre: nombre_madre || '',        // TODO: crear en HubSpot
+    estado_civil: estado_civil || '',        // TODO: crear en HubSpot
+    domicilio: domicilio || '',              // TODO: crear en HubSpot
+    numero_piso: numero_piso || '',          // TODO: crear en HubSpot
+    codigo_postal: codigo_postal || '',      // TODO: crear en HubSpot
+    provincia: provincia || '',              // TODO: crear en HubSpot
   };
 
   const { ok, status, data } = await hsPost('/crm/v3/objects/contacts', { properties });
@@ -72,12 +92,13 @@ async function upsertContact({ firstname, lastname, email, phone, nie, nacionali
   return { id: null, error: data };
 }
 
-async function createDeal(contactId, { dealname }) {
+async function createDeal(contactId, { dealname, amount }) {
   const { ok, data } = await hsPost('/crm/v3/objects/deals', {
     properties: {
       dealname,
       pipeline: 'default',
       dealstage: '5301216445',
+      amount,
     },
     associations: [{
       to: { id: contactId },
@@ -102,12 +123,17 @@ export async function POST(req) {
     return NextResponse.json({ error: 'invalid_json' }, { status: 400 });
   }
 
-  const { nombre, email, telefono, tramite, plan, estado, obs, caseNumber, nie, nacionalidad } = body;
-  console.log('Solicitar recibido:', { nombre, email, tramite, plan, caseNumber });
+  const {
+    nombre, apellido1, apellido2, fechaNacimiento,
+    email, telefono, tramite, plan, estado, obs, caseNumber,
+    nie, nacionalidad, pais, localidad,
+    nombrePadre, nombreMadre, estadoCivil,
+    domicilio, numeroPiso, codigoPostal, provincia,
+  } = body;
+  console.log('Solicitar recibido:', { nombre, apellido1, email, tramite, plan, caseNumber });
 
-  const nameParts = (nombre || '').trim().split(/\s+/);
-  const firstname = nameParts[0] || '';
-  const lastname = nameParts.slice(1).join(' ') || '';
+  const firstname = nombre || '';
+  const lastname = [apellido1, apellido2].filter(Boolean).join(' ');
 
   const { id: contactId, error: contactError } = await upsertContact({
     firstname, lastname, email, phone: telefono,
@@ -116,14 +142,26 @@ export async function POST(req) {
     plan_contratado: plan || '',
     estado_actual: estado || '',
     numero_de_caso: caseNumber || '',
+    segundo_apellido: apellido2 || '',
+    fecha_nacimiento: fechaNacimiento || '',
+    localidad: localidad || '',
+    pais: pais || '',
+    nombre_padre: nombrePadre || '',
+    nombre_madre: nombreMadre || '',
+    estado_civil: estadoCivil || '',
+    domicilio: domicilio || '',
+    numero_piso: numeroPiso || '',
+    codigo_postal: codigoPostal || '',
+    provincia: provincia || '',
   });
   if (!contactId) {
     return NextResponse.json({ error: 'contact_failed', detail: contactError }, { status: 502 });
   }
   console.log('Contacto HubSpot id:', contactId);
 
+  const importes = { 'Solo Orientación': 49, 'Revisión Profesional': 129, 'Gestión Completa': 299, 'A la Carta': 0 };
   const dealname = `Solicitud ${caseNumber}`;
-  const { ok: dealOk, error: dealError } = await createDeal(contactId, { dealname });
+  const { ok: dealOk, error: dealError } = await createDeal(contactId, { dealname, amount: importes[plan] ?? 0 });
   if (!dealOk) {
     console.error('Deal fallido:', dealError);
     return NextResponse.json({ ok: true, contact: contactId, deal_error: dealError });
