@@ -23,22 +23,45 @@ async function hsPost(path, body) {
   return { ok: res.ok, status: res.status, data };
 }
 
-async function upsertContact({ firstname, lastname, email, phone, nie, nacionalidad, tipo_de_tramite, plan_contratado, estado_actual, numero_de_caso }) {
-  const { ok, status, data } = await hsPost('/crm/v3/objects/contacts', {
-    properties: {
-      firstname, lastname, email, phone: phone || '',
-      nie: nie || '',
-      nacionalidad: nacionalidad || '',
-      tipo_de_tramite: tipo_de_tramite || '',
-      plan_contratado: plan_contratado || '',
-      estado_actual: estado_actual || '',
-      numero_de_caso: numero_de_caso || '',
-    },
+async function hsPatch(path, body) {
+  const url = `${BASE}${path}`;
+  const res = await fetch(url, {
+    method: 'PATCH',
+    headers: hsHeaders(),
+    body: JSON.stringify(body),
   });
+  const data = await res.json().catch(() => null);
+  if (!res.ok) {
+    console.error(`HubSpot PATCH ${path} → ${res.status}`, JSON.stringify(data));
+  }
+  return { ok: res.ok, status: res.status, data };
+}
+
+async function upsertContact({ firstname, lastname, email, phone, nie, nacionalidad, tipo_de_tramite, plan_contratado, estado_actual, numero_de_caso }) {
+  const properties = {
+    firstname, lastname, email, phone: phone || '',
+    nie: nie || '',
+    nacionalidad: nacionalidad || '',
+    tipo_de_tramite: tipo_de_tramite || '',
+    plan_contratado: plan_contratado || '',
+    estado_actual: estado_actual || '',
+    numero_de_caso: numero_de_caso || '',
+  };
+
+  const { ok, status, data } = await hsPost('/crm/v3/objects/contacts', { properties });
 
   if (ok) return { id: data.id, error: null };
 
   if (status === 409) {
+    // Extract existing ID from HubSpot error message ("Contact already exists. Existing ID: 12345")
+    const match = data?.message?.match(/Existing ID[:\s]+(\d+)/i);
+    if (match) {
+      const existingId = match[1];
+      console.log('Contacto duplicado, actualizando ID:', existingId);
+      const { ok: pok } = await hsPatch(`/crm/v3/objects/contacts/${existingId}`, { properties });
+      if (pok) return { id: existingId, error: null };
+    }
+    // Fallback: search by email
     const { ok: sok, data: sdata } = await hsPost('/crm/v3/objects/contacts/search', {
       filterGroups: [{ filters: [{ propertyName: 'email', operator: 'EQ', value: email }] }],
       properties: ['id'],
@@ -49,13 +72,12 @@ async function upsertContact({ firstname, lastname, email, phone, nie, nacionali
   return { id: null, error: data };
 }
 
-async function createDeal(contactId, { dealname, numero_de_caso }) {
+async function createDeal(contactId, { dealname }) {
   const { ok, data } = await hsPost('/crm/v3/objects/deals', {
     properties: {
       dealname,
       pipeline: 'default',
       dealstage: '5301216445',
-      numero_de_caso: numero_de_caso || '',
     },
     associations: [{
       to: { id: contactId },
@@ -101,7 +123,7 @@ export async function POST(req) {
   console.log('Contacto HubSpot id:', contactId);
 
   const dealname = `Solicitud ${caseNumber}`;
-  const { ok: dealOk, error: dealError } = await createDeal(contactId, { dealname, numero_de_caso: caseNumber });
+  const { ok: dealOk, error: dealError } = await createDeal(contactId, { dealname });
   if (!dealOk) {
     console.error('Deal fallido:', dealError);
     return NextResponse.json({ ok: true, contact: contactId, deal_error: dealError });
