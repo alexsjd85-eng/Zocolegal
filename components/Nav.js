@@ -4,13 +4,13 @@ import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const locales = [
-  { code: 'es', label: '🇪🇸 ES' },
-  { code: 'ca', label: '🇨🇦 CA' },
-  { code: 'en', label: '🇬🇧 EN' },
-  { code: 'ar', label: '🇸🇦 عربي' },
+  { code: 'es', label: '🇪🇸 ES'  },
+  { code: 'ca', label: 'CAT'     },
+  { code: 'en', label: '🇬🇧 EN'  },
+  { code: 'ar', label: '🇸🇦 AR'  },
   { code: 'zh', label: '🇨🇳 中文' },
-  { code: 'ru', label: '🇷🇺 RU' },
-  { code: 'uk', label: '🇺🇦 UK' },
+  { code: 'ru', label: '🇷🇺 RU'  },
+  { code: 'uk', label: '🇺🇦 UK'  },
 ];
 
 export default function Nav() {
