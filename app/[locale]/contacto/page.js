@@ -1,23 +1,30 @@
 'use client';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 
 export default function ContactoPage() {
   const { locale } = useParams();
+  const t = useTranslations('contacto');
+  const tn = useTranslations('nav');
+
+  const [form, setForm] = useState({
+    nombre: '', apellidos: '', email: '', telefono: '', asunto: '', mensaje: '', rgpd: false,
+  });
   const [sent, setSent] = useState(false);
 
+  const set = (k, v) => setForm(prev => ({ ...prev, [k]: v }));
+
   function submit() {
-    const fields = ['c-nombre','c-apellidos','c-email','c-asunto','c-mensaje'];
-    for (const id of fields) {
-      if (!document.getElementById(id).value) {
-        alert('Por favor rellena todos los campos obligatorios.');
-        return;
-      }
+    const { nombre, apellidos, email, asunto, mensaje } = form;
+    if (!nombre || !apellidos || !email || !asunto || !mensaje) {
+      alert(t('alert_fields'));
+      return;
     }
-    if (!document.getElementById('c-rgpd').checked) {
-      alert('Debes aceptar la política de privacidad.');
+    if (!form.rgpd) {
+      alert(t('alert_rgpd'));
       return;
     }
     setSent(true);
@@ -27,13 +34,13 @@ export default function ContactoPage() {
     <main>
       <Nav />
       <div className="page-hero">
-        <h1>Contacto</h1>
-        <p>Estamos aquí para ayudarte. Te respondemos en menos de 24 horas.</p>
+        <h1>{tn('contacto')}</h1>
+        <p>{t('page_sub')}</p>
       </div>
       <section className="section">
         <div className="contact-grid">
           <div className="contact-info-card">
-            <h3>Información de contacto</h3>
+            <h3>{t('info_title')}</h3>
             <div className="contact-item">
               <div className="contact-icon">✉️</div>
               <div className="contact-item-text">
@@ -44,62 +51,83 @@ export default function ContactoPage() {
             <div className="contact-item">
               <div className="contact-icon">📞</div>
               <div className="contact-item-text">
-                <div className="label">Teléfono</div>
+                <div className="label">{t('phone')}</div>
                 <div className="value">608 332 394</div>
               </div>
             </div>
             <div className="contact-item">
               <div className="contact-icon">🕐</div>
               <div className="contact-item-text">
-                <div className="label">Horario</div>
-                <div className="value">Lun–Vie · 9:00–18:00</div>
+                <div className="label">{t('hours_label')}</div>
+                <div className="value">{t('hours_val')}</div>
               </div>
             </div>
             <div className="contact-item">
               <div className="contact-icon">📍</div>
               <div className="contact-item-text">
-                <div className="label">Ubicación</div>
-                <div className="value">100% Online</div>
+                <div className="label">{t('location_label')}</div>
+                <div className="value">{t('location_val')}</div>
               </div>
             </div>
             <div style={{marginTop:'1.5rem', paddingTop:'1.5rem', borderTop:'1px solid rgba(255,255,255,.15)'}}>
-              <div style={{fontSize:'.78rem', opacity:'.65', marginBottom:'.5rem'}}>IDIOMAS DE ATENCIÓN</div>
-              <div style={{fontSize:'.88rem', fontWeight:'500'}}>ES · CA · EN · AR · 中文</div>
+              <div style={{fontSize:'.78rem', opacity:'.65', marginBottom:'.5rem'}}>{t('langs_label')}</div>
+              <div style={{fontSize:'.88rem', fontWeight:'500'}}>{t('langs_val')}</div>
             </div>
           </div>
 
           <div className="contact-form-card">
-            <h3>Envíanos un mensaje</h3>
+            <h3>{t('form_title')}</h3>
             <div className="form-row">
-              <div className="form-group"><label>Nombre *</label><input id="c-nombre" type="text" placeholder="Tu nombre" /></div>
-              <div className="form-group"><label>Apellidos *</label><input id="c-apellidos" type="text" placeholder="Tus apellidos" /></div>
+              <div className="form-group">
+                <label>{t('name')}</label>
+                <input type="text" placeholder={t('name_ph')}
+                  value={form.nombre} onChange={e => set('nombre', e.target.value)} />
+              </div>
+              <div className="form-group">
+                <label>{t('surname')}</label>
+                <input type="text" placeholder={t('surname_ph')}
+                  value={form.apellidos} onChange={e => set('apellidos', e.target.value)} />
+              </div>
             </div>
             <div className="form-row">
-              <div className="form-group"><label>Email *</label><input id="c-email" type="email" placeholder="tu@correo.com" /></div>
-              <div className="form-group"><label>Teléfono</label><input id="c-tel" type="tel" placeholder="+34 600 000 000" /></div>
+              <div className="form-group">
+                <label>{t('email_label')}</label>
+                <input type="email" placeholder="tu@correo.com"
+                  value={form.email} onChange={e => set('email', e.target.value)} />
+              </div>
+              <div className="form-group">
+                <label>{t('phone')}</label>
+                <input type="tel" placeholder={t('phone_ph')}
+                  value={form.telefono} onChange={e => set('telefono', e.target.value)} />
+              </div>
             </div>
             <div className="form-group">
-              <label>Asunto *</label>
-              <select id="c-asunto">
-                <option value="">Selecciona...</option>
-                <option>Consulta general</option>
-                <option>Información sobre un trámite</option>
-                <option>Caso especial o urgente</option>
-                <option>Información sobre precios</option>
-                <option>Otro</option>
+              <label>{t('subject')}</label>
+              <select value={form.asunto} onChange={e => set('asunto', e.target.value)}>
+                <option value="">{t('subject_ph')}</option>
+                <option value="opt1">{t('opt1')}</option>
+                <option value="opt2">{t('opt2')}</option>
+                <option value="opt3">{t('opt3')}</option>
+                <option value="opt4">{t('opt4')}</option>
+                <option value="opt5">{t('opt5')}</option>
               </select>
             </div>
-            <div className="form-group"><label>Mensaje *</label><textarea id="c-mensaje" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea></div>
+            <div className="form-group">
+              <label>{t('message')}</label>
+              <textarea placeholder={t('message_ph')}
+                value={form.mensaje} onChange={e => set('mensaje', e.target.value)} />
+            </div>
             <div className="form-check">
-              <input type="checkbox" id="c-rgpd" />
-              <label htmlFor="c-rgpd">Acepto la <a href={`/${locale}/privacidad`}>política de privacidad</a> y el tratamiento de mis datos según el RGPD. *</label>
+              <input type="checkbox" id="c-rgpd"
+                checked={form.rgpd} onChange={e => set('rgpd', e.target.checked)} />
+              <label htmlFor="c-rgpd">{t('rgpd')}</label>
             </div>
             <div style={{marginTop:'1.25rem'}}>
-              <button className="btn-primary" onClick={submit}>Enviar mensaje →</button>
+              <button className="btn-primary" onClick={submit}>{t('send')}</button>
             </div>
             {sent && (
               <div className="success-msg" style={{display:'block'}}>
-                ✓ Mensaje enviado. Te respondemos en menos de 24 horas.
+                {t('success')}
               </div>
             )}
           </div>

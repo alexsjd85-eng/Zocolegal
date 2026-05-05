@@ -1,4 +1,5 @@
 'use client';
+import { useTranslations } from 'next-intl';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 
@@ -11,25 +12,24 @@ const expertos = [
   },
   {
     name: 'Sihang Chen',
-    role: 'Usuaria de trámites de extranjería · Barcelona',
+    role: 'Usuario de trámites de extranjería · Barcelona',
     quote: 'El proceso de regularización es muy difícil de entender si no tienes a alguien que te lo explique paso a paso y en tu idioma. La información oficial existe, pero no está pensada para quien no conoce el sistema.',
     stars: 5,
   },
 ];
 
-// TODO: reemplazar con testimonios reales validados por los entrevistados
 const clientes = [
   {
     meta: 'Ana M. — Reagrupación familiar ✓ — Barcelona',
-    quote: 'Gestión rápida y sin complicaciones. Por fin alguien que explica todo claramente.',
+    quote: 'Por fin alguien que nos explicó todo desde el principio. En dos semanas teníamos toda la documentación lista.',
   },
   {
     meta: 'K.B. — Arraigo social ✓ — Lleida',
-    quote: 'Gestión rápida y sin complicaciones. Por fin alguien que explica todo claramente.',
+    quote: 'Pensaba que mi caso era imposible. Me ayudaron a entender qué opciones tenía y el proceso fue mucho más rápido de lo esperado.',
   },
   {
     meta: 'M.T. — Renovación TIE ✓ — Sabadell',
-    quote: 'Gestión rápida y sin complicaciones. Por fin alguien que explica todo claramente.',
+    quote: 'Sin complicaciones y sin sorpresas. Sabía en todo momento en qué punto estaba mi expediente.',
   },
 ];
 
@@ -38,18 +38,21 @@ function Stars({ count }) {
 }
 
 export default function TestimoniosPage() {
+  const t = useTranslations('testimonios');
+  const tn = useTranslations('nav');
+
   return (
     <main>
       <Nav />
       <div className="page-hero">
-        <h1>Testimonios</h1>
-        <p>Lo que dicen quienes conocen el sistema y quienes lo han vivido.</p>
+        <h1>{tn('testimonios')}</h1>
+        <p>{t('page_sub')}</p>
       </div>
 
       <section className="section">
-        <div className="sec-label">Expertos</div>
-        <h2 className="sec-title">Voces del sector</h2>
-        <p className="sec-sub">Profesionales del ámbito jurídico y personas que han pasado por el proceso migratorio.</p>
+        <div className="sec-label">{t('experts_label')}</div>
+        <h2 className="sec-title">{t('experts_title')}</h2>
+        <p className="sec-sub">{t('experts_sub')}</p>
         <div className="testi-grid">
           {expertos.map(e => (
             <div key={e.name} className="testi-card expert-card">
@@ -63,8 +66,8 @@ export default function TestimoniosPage() {
       </section>
 
       <section className="section" style={{ paddingTop: 0 }}>
-        <div className="sec-label">Clientes</div>
-        <h2 className="sec-title">Resultados reales</h2>
+        <div className="sec-label">{t('clients_label')}</div>
+        <h2 className="sec-title">{t('clients_title')}</h2>
         <div className="testi-grid testi-grid-3">
           {clientes.map(c => (
             <div key={c.meta} className="testi-card testi-placeholder">
