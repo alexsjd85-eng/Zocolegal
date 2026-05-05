@@ -45,6 +45,9 @@ function SolicitarContent() {
   const planPrice = planMeta.price ?? ts('price_ask');
   const planPriceLabel = planMeta.priceLabelKey ? ts(planMeta.priceLabelKey) : '';
 
+  const PLAN_ES = { '1': 'Solo Orientación', '2': 'Revisión Profesional', '3': 'Gestión Completa', '4': 'A la Carta' };
+  const planNameES = PLAN_ES[planId] || 'Solo Orientación';
+
   async function submit() {
     const required = ['nombre', 'pasaporte', 'email', 'telefono', 'domicilio', 'cp', 'poblacion', 'provincia', 'tramite', 'estado'];
     for (const k of required) {
@@ -66,7 +69,7 @@ function SolicitarContent() {
       const res = await fetch('/api/solicitar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, plan: planName, caseNumber: cn }),
+        body: JSON.stringify({ ...form, plan: planNameES, caseNumber: cn }),
       });
       const data = await res.json().catch(() => null);
       if (!res.ok) {
@@ -191,9 +194,9 @@ function SolicitarContent() {
             <label>{t('current_status')}</label>
             <select id="q-estado" value={form.estado} onChange={e => set('estado', e.target.value)}>
               <option value="">{t('status_ph')}</option>
-              <option value="nuevo">{t('status1')}</option>
-              <option value="proceso">{t('status2')}</option>
-              <option value="renovacion">{t('status3')}</option>
+              <option value="Nuevo — nunca he tenido permiso">{t('status1')}</option>
+              <option value="En proceso — tengo una solicitud en curso">{t('status2')}</option>
+              <option value="Renovación — mi permiso caduca o ha caducado">{t('status3')}</option>
             </select>
           </div>
           <div className="form-group">

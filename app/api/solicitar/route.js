@@ -23,9 +23,17 @@ async function hsPost(path, body) {
   return { ok: res.ok, status: res.status, data };
 }
 
-async function upsertContact({ firstname, lastname, email, phone }) {
+async function upsertContact({ firstname, lastname, email, phone, nie, nacionalidad, tipo_de_tramite, plan_contratado, estado_actual, numero_de_caso }) {
   const { ok, status, data } = await hsPost('/crm/v3/objects/contacts', {
-    properties: { firstname, lastname, email, phone: phone || '' },
+    properties: {
+      firstname, lastname, email, phone: phone || '',
+      nie: nie || '',
+      nacionalidad: nacionalidad || '',
+      tipo_de_tramite: tipo_de_tramite || '',
+      plan_contratado: plan_contratado || '',
+      estado_actual: estado_actual || '',
+      numero_de_caso: numero_de_caso || '',
+    },
   });
 
   if (ok) return { id: data.id, error: null };
@@ -41,12 +49,13 @@ async function upsertContact({ firstname, lastname, email, phone }) {
   return { id: null, error: data };
 }
 
-async function createDeal(contactId, { dealname }) {
+async function createDeal(contactId, { dealname, numero_de_caso }) {
   const { ok, data } = await hsPost('/crm/v3/objects/deals', {
     properties: {
       dealname,
       pipeline: 'default',
       dealstage: '5301216445',
+      numero_de_caso: numero_de_caso || '',
     },
     associations: [{
       to: { id: contactId },
@@ -71,21 +80,28 @@ export async function POST(req) {
     return NextResponse.json({ error: 'invalid_json' }, { status: 400 });
   }
 
-  const { nombre, email, telefono, tramite, plan, estado, obs, caseNumber } = body;
+  const { nombre, email, telefono, tramite, plan, estado, obs, caseNumber, nie, nacionalidad } = body;
   console.log('Solicitar recibido:', { nombre, email, tramite, plan, caseNumber });
 
   const nameParts = (nombre || '').trim().split(/\s+/);
   const firstname = nameParts[0] || '';
   const lastname = nameParts.slice(1).join(' ') || '';
 
-  const { id: contactId, error: contactError } = await upsertContact({ firstname, lastname, email, phone: telefono });
+  const { id: contactId, error: contactError } = await upsertContact({
+    firstname, lastname, email, phone: telefono,
+    nie, nacionalidad,
+    tipo_de_tramite: tramite || '',
+    plan_contratado: plan || '',
+    estado_actual: estado || '',
+    numero_de_caso: caseNumber || '',
+  });
   if (!contactId) {
     return NextResponse.json({ error: 'contact_failed', detail: contactError }, { status: 502 });
   }
   console.log('Contacto HubSpot id:', contactId);
 
   const dealname = `Solicitud ${caseNumber}`;
-  const { ok: dealOk, error: dealError } = await createDeal(contactId, { dealname });
+  const { ok: dealOk, error: dealError } = await createDeal(contactId, { dealname, numero_de_caso: caseNumber });
   if (!dealOk) {
     console.error('Deal fallido:', dealError);
     return NextResponse.json({ ok: true, contact: contactId, deal_error: dealError });
