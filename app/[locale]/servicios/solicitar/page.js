@@ -45,7 +45,7 @@ function SolicitarContent() {
   const planPrice = planMeta.price ?? ts('price_ask');
   const planPriceLabel = planMeta.priceLabelKey ? ts(planMeta.priceLabelKey) : '';
 
-  function submit() {
+  async function submit() {
     const required = ['nombre', 'pasaporte', 'email', 'telefono', 'domicilio', 'cp', 'poblacion', 'provincia', 'tramite', 'estado'];
     for (const k of required) {
       if (!form[k]) {
