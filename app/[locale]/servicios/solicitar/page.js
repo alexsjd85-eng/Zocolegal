@@ -34,6 +34,7 @@ function SolicitarContent() {
   });
   const [files, setFiles] = useState({});
   const [caseNumber, setCaseNumber] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const set = (k, v) => setForm(prev => ({ ...prev, [k]: v }));
 
@@ -57,11 +58,19 @@ function SolicitarContent() {
       alert(t('alert_rgpd'));
       return;
     }
-    console.log('Formulario de solicitud:', form);
-    console.log('Archivos adjuntos:', files);
     const year = new Date().getFullYear();
     const num = String(Math.floor(Math.random() * 90000) + 10000);
-    setCaseNumber(`ZL-${year}-${num}`);
+    const cn = `ZL-${year}-${num}`;
+    setLoading(true);
+    try {
+      await fetch('/api/solicitar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, plan: planName, caseNumber: cn }),
+      });
+    } catch { /* silent — mostramos confirmación igualmente */ }
+    finally { setLoading(false); }
+    setCaseNumber(cn);
   }
 
   return (
@@ -217,7 +226,9 @@ function SolicitarContent() {
           </div>
 
           <div style={{ marginTop: '1.5rem', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            <button className="btn-primary" onClick={submit}>{t('submit')}</button>
+            <button className="btn-primary" onClick={submit} disabled={loading}>
+              {loading ? t('loading') : t('submit')}
+            </button>
             <button className="btn-secondary" onClick={() => router.push(`/${locale}/servicios`)}>{t('back')}</button>
           </div>
 

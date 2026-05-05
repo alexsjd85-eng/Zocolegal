@@ -14,10 +14,11 @@ export default function ContactoPage() {
     nombre: '', apellidos: '', email: '', telefono: '', asunto: '', mensaje: '', rgpd: false,
   });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const set = (k, v) => setForm(prev => ({ ...prev, [k]: v }));
 
-  function submit() {
+  async function submit() {
     const { nombre, apellidos, email, asunto, mensaje } = form;
     if (!nombre || !apellidos || !email || !asunto || !mensaje) {
       alert(t('alert_fields'));
@@ -27,7 +28,23 @@ export default function ContactoPage() {
       alert(t('alert_rgpd'));
       return;
     }
-    setSent(true);
+    setLoading(true);
+    try {
+      const res = await fetch('/api/contacto', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSent(true);
+      } else {
+        alert(t('alert_fields'));
+      }
+    } catch {
+      alert(t('alert_fields'));
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -123,7 +140,9 @@ export default function ContactoPage() {
               <label htmlFor="c-rgpd">{t('rgpd')}</label>
             </div>
             <div style={{marginTop:'1.25rem'}}>
-              <button className="btn-primary" onClick={submit}>{t('send')}</button>
+              <button className="btn-primary" onClick={submit} disabled={loading}>
+                {loading ? '...' : t('send')}
+              </button>
             </div>
             {sent && (
               <div className="success-msg" style={{display:'block'}}>
