@@ -2,97 +2,106 @@ import { NextResponse } from 'next/server';
 
 const BASE = 'https://api.hubapi.com';
 
-function headers() {
+function hsHeaders() {
   return {
     'Authorization': `Bearer ${process.env.HUBSPOT_API_KEY}`,
     'Content-Type': 'application/json',
   };
 }
 
-async function upsertContact({ firstname, lastname, email, phone, nationality }) {
-  const res = await fetch(`${BASE}/crm/v3/objects/contacts`, {
+async function hsPost(path, body) {
+  const url = `${BASE}${path}`;
+  const res = await fetch(url, {
     method: 'POST',
-    headers: headers(),
-    body: JSON.stringify({
-      properties: { firstname, lastname, email, phone: phone || '', country: nationality || '' },
-    }),
+    headers: hsHeaders(),
+    body: JSON.stringify(body),
+  });
+  const data = await res.json().catch(() => null);
+  if (!res.ok) {
+    console.error(`HubSpot POST ${path} → ${res.status}`, JSON.stringify(data));
+  }
+  return { ok: res.ok, status: res.status, data };
+}
+
+async function upsertContact({ firstname, lastname, email, phone }) {
+  const { ok, status, data } = await hsPost('/crm/v3/objects/contacts', {
+    properties: { firstname, lastname, email, phone: phone || '' },
   });
 
-  if (res.ok) {
-    const data = await res.json();
-    return data.id;
-  }
+  if (ok) return { id: data.id, error: null };
 
-  if (res.status === 409) {
-    const search = await fetch(`${BASE}/crm/v3/objects/contacts/search`, {
-      method: 'POST',
-      headers: headers(),
-      body: JSON.stringify({
-        filterGroups: [{ filters: [{ propertyName: 'email', operator: 'EQ', value: email }] }],
-        properties: ['id'],
-      }),
+  if (status === 409) {
+    const { ok: sok, data: sdata } = await hsPost('/crm/v3/objects/contacts/search', {
+      filterGroups: [{ filters: [{ propertyName: 'email', operator: 'EQ', value: email }] }],
+      properties: ['id'],
     });
-    const data = await search.json();
-    return data.results?.[0]?.id ?? null;
+    if (sok && sdata.results?.length) return { id: sdata.results[0].id, error: null };
   }
 
-  return null;
+  return { id: null, error: data };
 }
 
 async function createDeal(contactId, { dealname, tramite, plan, estado, obs, caseNumber }) {
   const description = [
     `Trámite: ${tramite}`,
     `Plan: ${plan}`,
-    `Estado actual: ${estado}`,
+    `Estado: ${estado}`,
     obs ? `Observaciones: ${obs}` : '',
-    `Número de caso: ${caseNumber}`,
+    `Caso: ${caseNumber}`,
   ].filter(Boolean).join('\n');
 
-  const res = await fetch(`${BASE}/crm/v3/objects/deals`, {
-    method: 'POST',
-    headers: headers(),
-    body: JSON.stringify({
-      properties: {
-        dealname,
-        pipeline: 'default',
-        dealstage: 'appointmentscheduled',
-        description,
-      },
-      associations: [{
-        to: { id: contactId },
-        types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 3 }],
-      }],
-    }),
+  const { ok, data } = await hsPost('/crm/v3/objects/deals', {
+    properties: {
+      dealname,
+      pipeline: 'default',
+      dealstage: 'appointmentscheduled',
+      description,
+    },
+    associations: [{
+      to: { id: contactId },
+      types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 3 }],
+    }],
   });
 
-  return res.ok;
+  return { ok, error: ok ? null : data };
 }
 
 export async function POST(req) {
-  try {
-    const body = await req.json();
-    const { nombre, email, telefono, nacionalidad, tramite, plan, estado, obs, caseNumber } = body;
-
-    const nameParts = nombre.trim().split(' ');
-    const firstname = nameParts[0] || nombre;
-    const lastname = nameParts.slice(1).join(' ') || '';
-
-    const contactId = await upsertContact({ firstname, lastname, email, phone: telefono, nationality: nacionalidad });
-
-    if (contactId) {
-      await createDeal(contactId, {
-        dealname: `${tramite} — ${plan} (${caseNumber})`,
-        tramite,
-        plan,
-        estado,
-        obs,
-        caseNumber,
-      });
-    }
-
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error('HubSpot solicitar error:', err);
-    return NextResponse.json({ error: 'server_error' }, { status: 500 });
+  const apiKey = process.env.HUBSPOT_API_KEY;
+  if (!apiKey) {
+    console.error('HUBSPOT_API_KEY no está definida');
+    return NextResponse.json({ error: 'missing_api_key' }, { status: 500 });
   }
+
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: 'invalid_json' }, { status: 400 });
+  }
+
+  const { nombre, email, telefono, tramite, plan, estado, obs, caseNumber } = body;
+  console.log('Solicitar recibido:', { nombre, email, tramite, plan, caseNumber });
+
+  const nameParts = (nombre || '').trim().split(/\s+/);
+  const firstname = nameParts[0] || '';
+  const lastname = nameParts.slice(1).join(' ') || '';
+
+  const { id: contactId, error: contactError } = await upsertContact({ firstname, lastname, email, phone: telefono });
+  if (!contactId) {
+    return NextResponse.json({ error: 'contact_failed', detail: contactError }, { status: 502 });
+  }
+  console.log('Contacto HubSpot id:', contactId);
+
+  const { ok: dealOk, error: dealError } = await createDeal(contactId, {
+    dealname: `${tramite} — ${plan} (${caseNumber})`,
+    tramite, plan, estado, obs, caseNumber,
+  });
+  if (!dealOk) {
+    console.error('Deal fallido:', dealError);
+    return NextResponse.json({ ok: true, contact: contactId, deal_error: dealError });
+  }
+
+  console.log('Deal creado correctamente');
+  return NextResponse.json({ ok: true, contact: contactId });
 }

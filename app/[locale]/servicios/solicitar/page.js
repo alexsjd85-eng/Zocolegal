@@ -63,13 +63,22 @@ function SolicitarContent() {
     const cn = `ZL-${year}-${num}`;
     setLoading(true);
     try {
-      await fetch('/api/solicitar', {
+      const res = await fetch('/api/solicitar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, plan: planName, caseNumber: cn }),
       });
-    } catch { /* silent — mostramos confirmación igualmente */ }
-    finally { setLoading(false); }
+      const data = await res.json().catch(() => null);
+      if (!res.ok) {
+        console.error('Error API solicitar:', data);
+      } else {
+        console.log('API solicitar OK:', data);
+      }
+    } catch (err) {
+      console.error('Fetch error solicitar:', err);
+    } finally {
+      setLoading(false);
+    }
     setCaseNumber(cn);
   }
 
