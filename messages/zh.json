@@ -9,6 +9,8 @@
     "hero_title": "办理程序目录",
     "hero_sub": "每项程序的官方信息、预计时间和所需文件。",
     "ver_ficha": "查看完整详情 →",
+    "search_placeholder": "搜索手续...",
+    "no_results": "未找到符合您搜索的手续",
     "volver": "← 返回目录",
     "docs": "所需文件",
     "forms": "官方表格",

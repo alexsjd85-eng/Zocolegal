@@ -9,6 +9,8 @@
     "hero_title": "Procedures Catalogue",
     "hero_sub": "Official information, estimated timelines and required documentation for each procedure.",
     "ver_ficha": "View full details →",
+    "search_placeholder": "Search procedure...",
+    "no_results": "No procedures found for your search",
     "volver": "← Back to catalogue",
     "docs": "Required documents",
     "forms": "Official forms",

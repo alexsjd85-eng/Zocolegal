@@ -9,6 +9,8 @@
     "hero_title": "Catàleg de Tràmits",
     "hero_sub": "Informació oficial, temps estimats i documentació necessària per a cada tràmit.",
     "ver_ficha": "Veure fitxa completa →",
+    "search_placeholder": "Cercar tràmit...",
+    "no_results": "No s'han trobat tràmits per a la teva cerca",
     "volver": "← Tornar al catàleg",
     "docs": "Documentació a aportar",
     "forms": "Formularis oficials",

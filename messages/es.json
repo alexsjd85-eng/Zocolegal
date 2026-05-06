@@ -9,6 +9,8 @@
     "hero_title": "Catálogo de Trámites",
     "hero_sub": "Información oficial, tiempos estimados y documentación necesaria para cada trámite.",
     "ver_ficha": "Ver ficha completa →",
+    "search_placeholder": "Buscar trámite...",
+    "no_results": "No se encontraron trámites para tu búsqueda",
     "volver": "← Volver al catálogo",
     "docs": "Documentación a aportar",
     "forms": "Formularios oficiales",
