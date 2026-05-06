@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getMessages } from 'next-intl/server';
 import { Playfair_Display, DM_Sans } from 'next/font/google';
 import '../globals.css';
+import 'flag-icons/css/flag-icons.min.css';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],

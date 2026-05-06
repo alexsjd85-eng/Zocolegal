@@ -4,13 +4,13 @@ import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const locales = [
-  { code: 'es', label: '🇪🇸 ES'  },
-  { code: 'ca', label: 'CAT'     },
-  { code: 'en', label: '🇬🇧 EN'  },
-  { code: 'ar', label: '🇸🇦 AR'  },
-  { code: 'zh', label: '🇨🇳 中文' },
-  { code: 'ru', label: '🇷🇺 RU'  },
-  { code: 'uk', label: '🇺🇦 UK'  },
+  { code: 'es', flag: 'es'    },
+  { code: 'ca', flag: 'es-ct' },
+  { code: 'en', flag: 'gb'    },
+  { code: 'ar', flag: 'ma'    },
+  { code: 'zh', flag: 'cn'    },
+  { code: 'ru', flag: 'ru'    },
+  { code: 'uk', flag: 'ua'    },
 ];
 
 export default function Nav() {
@@ -52,8 +52,9 @@ export default function Nav() {
               key={l.code}
               className={`lb ${currentLocale === l.code ? 'active' : ''}`}
               onClick={() => switchLang(l.code)}
+              title={l.code.toUpperCase()}
             >
-              {l.label}
+              <span className={`fi fi-${l.flag}`}></span>
             </button>
           ))}
         </div>

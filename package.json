@@ -11,6 +11,7 @@
   "dependencies": {
     "@azure/msal-node": "^5.1.5",
     "@pdf-lib/fontkit": "^1.1.1",
+    "flag-icons": "^7.5.0",
     "framer-motion": "^12.38.0",
     "next": "16.2.4",
     "next-intl": "^4.11.0",
