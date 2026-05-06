@@ -152,7 +152,7 @@ export async function POST(req) {
   }
 
   try {
-    await createExpedienteFolder({ caseNumber, nombre, apellido1, files: attachedFiles, tramite });
+    await createExpedienteFolder({ caseNumber, nombre, apellido1, files: attachedFiles, tramite, data: body });
     console.log('Expediente creado en SharePoint');
   } catch (err) {
     console.error('createExpedienteFolder error (no bloquea flujo):', err.message);
