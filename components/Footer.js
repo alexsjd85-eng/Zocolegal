@@ -32,9 +32,9 @@ export default function Footer() {
         </div>
         <div className="footer-col">
           <h4>{t('legal_title')}</h4>
-          <a href="#">{t('privacy')}</a>
-          <a href="#">{t('legal_notice')}</a>
-          <a href="#">{t('cookies')}</a>
+          <a onClick={() => router.push(`/${locale}/privacidad`)} style={{cursor:'pointer'}}>{t('privacy')}</a>
+          <a onClick={() => router.push(`/${locale}/aviso-legal`)} style={{cursor:'pointer'}}>{t('legal_notice')}</a>
+          <a onClick={() => router.push(`/${locale}/cookies`)} style={{cursor:'pointer'}}>{t('cookies')}</a>
         </div>
         <div className="footer-col">
           <h4>{t('contact_title')}</h4>

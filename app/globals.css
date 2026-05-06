@@ -442,3 +442,11 @@ footer {
 .catalog-body .btn-primary {
   margin-top: auto;
 }}
+
+/* LEGAL PAGES */
+.legal-wrap { max-width: 760px; margin: 0 auto; font-size: .93rem; color: var(--ink2); line-height: 1.85; }
+.legal-wrap h2 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 2rem 0 .5rem; }
+.legal-wrap p { margin-bottom: 1rem; }
+.legal-wrap ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+.legal-wrap ul li { margin-bottom: .35rem; }
+.legal-wrap a { color: var(--navy); text-decoration: underline; }
