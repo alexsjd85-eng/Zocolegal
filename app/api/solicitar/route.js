@@ -95,10 +95,17 @@ export async function POST(req) {
   }
 
   let body;
+  let attachedFiles = [];
   try {
-    body = await req.json();
+    const formData = await req.formData();
+    body = Object.fromEntries(
+      [...formData.entries()].filter(([, v]) => typeof v === 'string')
+    );
+    attachedFiles = [...formData.entries()]
+      .filter(([k, v]) => k.startsWith('archivo_') && v instanceof File && v.size > 0)
+      .map(([k, v]) => ({ fieldName: k.replace('archivo_', ''), file: v }));
   } catch {
-    return NextResponse.json({ error: 'invalid_json' }, { status: 400 });
+    return NextResponse.json({ error: 'invalid_formdata' }, { status: 400 });
   }
 
   const {
@@ -145,7 +152,7 @@ export async function POST(req) {
   }
 
   try {
-    await createExpedienteFolder({ caseNumber, nombre, apellido1 });
+    await createExpedienteFolder({ caseNumber, nombre, apellido1, files: attachedFiles });
     console.log('Expediente creado en SharePoint');
   } catch (err) {
     console.error('createExpedienteFolder error (no bloquea flujo):', err.message);

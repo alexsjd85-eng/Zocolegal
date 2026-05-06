@@ -69,10 +69,16 @@ function SolicitarContent() {
     const cn = `ZL-${year}-${num}`;
     setLoading(true);
     try {
+      const fd = new FormData();
+      Object.entries({ ...form, plan: planNameES, caseNumber: cn }).forEach(([k, v]) => {
+        if (v !== undefined && v !== null) fd.append(k, v);
+      });
+      Object.entries(files).forEach(([name, file]) => {
+        if (file) fd.append(`archivo_${name}`, file);
+      });
       const res = await fetch('/api/solicitar', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, plan: planNameES, caseNumber: cn }),
+        body: fd,
       });
       const data = await res.json().catch(() => null);
       if (!res.ok) {
