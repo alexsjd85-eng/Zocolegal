@@ -38,23 +38,12 @@ async function hsPatch(path, body) {
   return { ok: res.ok, status: res.status, data };
 }
 
-async function upsertContact({
-  firstname, lastname, email, phone,
-  nie, nacionalidad, tipo_de_tramite, plan_contratado, estado_actual, numero_de_caso,
-  segundo_apellido,
-}) {
+async function upsertContact({ firstname, lastname, email, phone }) {
   const properties = {
     firstname,
     lastname,
     email,
     phone: phone || '',
-    nie: nie || '',                           // TODO: crear en HubSpot
-    nacionalidad: nacionalidad || '',         // TODO: crear en HubSpot
-    tipo_de_tramite: tipo_de_tramite || '',   // TODO: crear en HubSpot
-    plan_contratado: plan_contratado || '',   // TODO: crear en HubSpot
-    estado_actual: estado_actual || '',       // TODO: crear en HubSpot
-    numero_de_caso: numero_de_caso || '',     // TODO: crear en HubSpot
-    segundo_apellido: segundo_apellido || '', // TODO: crear en HubSpot
   };
 
   const { ok, status, data } = await hsPost('/crm/v3/objects/contacts', { properties });
@@ -121,17 +110,11 @@ export async function POST(req) {
   } = body;
   console.log('Solicitar recibido:', { nombre, apellido1, email, tramite, plan, caseNumber });
 
-  const firstname = nombre || '';
-  const lastname = [apellido1, apellido2].filter(Boolean).join(' ');
-
   const { id: contactId, error: contactError } = await upsertContact({
-    firstname, lastname, email, phone: telefono,
-    nie, nacionalidad,
-    tipo_de_tramite: tramite || '',
-    plan_contratado: plan || '',
-    estado_actual: estado || '',
-    numero_de_caso: caseNumber || '',
-    segundo_apellido: apellido2 || '',
+    firstname: nombre || '',
+    lastname: `${apellido1} ${apellido2}`.trim(),
+    email,
+    phone: telefono,
   });
   if (!contactId) {
     return NextResponse.json({ error: 'contact_failed', detail: contactError }, { status: 502 });
