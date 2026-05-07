@@ -33,7 +33,7 @@ export default async function LocaleLayout({ children, params }) {
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          src="https://www.googletagmanager.com/gtag/js?id=G-T2WKR122GC"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -41,7 +41,7 @@ export default async function LocaleLayout({ children, params }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+            gtag('config', 'G-T2WKR122GC');
           `}
         </Script>
       </head>
