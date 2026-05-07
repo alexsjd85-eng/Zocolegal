@@ -32,6 +32,7 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
+        <meta name="google-site-verification" content="_G-Szl1IW6fD5JmE71Ts0EheSRmpqEr84oJWN6TOEA0" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-T2WKR122GC"
           strategy="afterInteractive"
