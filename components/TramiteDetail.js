@@ -25,16 +25,16 @@ export default function TramiteDetail({ tramite: t2, onBack, locale: localeProp 
         </div>
       </div>
       <section className="section">
-        <div className="time-badge">⏱ {time}</div>
+        <div className="time-badge">{time}</div>
         <div className="detail-grid">
           <div className="detail-card">
-            <h3>📄 {t('docs')}</h3>
+            <h3>{t('docs')}</h3>
             <ul className="detail-list">
               {docs.map((d, i) => <li key={i}>{d}</li>)}
             </ul>
           </div>
           <div className="detail-card">
-            <h3>📋 {t('forms')}</h3>
+            <h3>{t('forms')}</h3>
             {forms.map((f, i) => (
               <a key={i} href={f.url} target="_blank" className="detail-link">
                 {f.name} <span className="ext">↗</span>
@@ -42,15 +42,15 @@ export default function TramiteDetail({ tramite: t2, onBack, locale: localeProp 
             ))}
           </div>
           <div className="detail-card">
-            <h3>📍 {t('where')}</h3>
+            <h3>{t('where')}</h3>
             {where.map((w, i) => (
               <a key={i} href={w.url} target="_blank" className="detail-link">
-                📍 {w.name} <span className="ext">↗</span>
+                {w.name} <span className="ext">↗</span>
               </a>
             ))}
           </div>
           <div className="detail-card">
-            <h3>🔗 {t('links')}</h3>
+            <h3>{t('links')}</h3>
             {links.map((l, i) => (
               <a key={i} href={l.url} target="_blank" className="detail-link">
                 {l.name} <span className="ext">↗</span>

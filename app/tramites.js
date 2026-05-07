@@ -1,7 +1,7 @@
 export const TRAMITES = [
   {
     id: 'residencia',
-    icon: '🏠',
+    icon: '',
     title: 'Autorización de Residencia Temporal',
     badge: 'Muy solicitado',
     desc: 'Permite vivir legalmente en España entre 90 días y 5 años. Necesario para establecerse y trabajar en Catalunya.',
@@ -30,7 +30,7 @@ export const TRAMITES = [
   },
   {
     id: 'tie',
-    icon: '🪪',
+    icon: '',
     title: 'Renovación de la Tarjeta de Residencia (TIE)',
     badge: 'Recurrente',
     desc: 'Renueva tu TIE antes de que caduque. Solicítala entre 60 días antes y 90 días después de la caducidad.',
@@ -59,7 +59,7 @@ export const TRAMITES = [
   },
   {
     id: 'reagrupacion',
-    icon: '👨‍👩‍👧',
+    icon: '',
     title: 'Reagrupación Familiar',
     badge: 'Frecuente',
     desc: 'Permite reunirse con familiares directos si ya tienes residencia legal en España.',
@@ -87,7 +87,7 @@ export const TRAMITES = [
   },
   {
     id: 'nie',
-    icon: '🆔',
+    icon: '',
     title: 'NIE — Número de Identificación de Extranjero',
     badge: 'Básico',
     desc: 'Número imprescindible para cualquier gestión legal, fiscal o laboral en España.',
@@ -112,7 +112,7 @@ export const TRAMITES = [
   },
   {
     id: 'nacionalidad',
-    icon: '🏅',
+    icon: '',
     title: 'Nacionalidad Española por Residencia',
     badge: 'Complejo',
     desc: 'Solicita la nacionalidad española tras 10 años de residencia legal (2 años para iberoamericanos).',
@@ -139,7 +139,7 @@ export const TRAMITES = [
   },
   {
     id: 'trabajo-ajena',
-    icon: '💼',
+    icon: '',
     title: 'Autorización de Trabajo por Cuenta Ajena',
     badge: 'Solicitado',
     desc: 'Permiso para trabajar como empleado en España. Generalmente la solicita el empleador.',
@@ -164,7 +164,7 @@ export const TRAMITES = [
   },
   {
     id: 'trabajo-propia',
-    icon: '🧑‍💻',
+    icon: '',
     title: 'Autorización de Trabajo por Cuenta Propia',
     badge: 'Autónomos',
     desc: 'Permiso para trabajar como autónomo o emprendedor en España siendo ciudadano no comunitario.',
@@ -189,7 +189,7 @@ export const TRAMITES = [
   },
   {
     id: 'ue',
-    icon: '🇪🇺',
+    icon: '',
     title: 'Certificado de Registro de Ciudadano UE',
     badge: 'UE',
     desc: 'Registro obligatorio para ciudadanos de la UE que residan en España más de 3 meses.',

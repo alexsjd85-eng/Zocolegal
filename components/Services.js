@@ -2,12 +2,12 @@ import { useTranslations } from 'next-intl';
 import { FadeUp, ScaleIn } from './Motion';
 
 const features = [
-  { icon: '🗺️', key: 'f1' },
-  { icon: '💬', key: 'f2' },
-  { icon: '📋', key: 'f3' },
-  { icon: '⏰', key: 'f4' },
-  { icon: '⚖️', key: 'f5' },
-  { icon: '🔍', key: 'f6' },
+  { key: 'f1' },
+  { key: 'f2' },
+  { key: 'f3' },
+  { key: 'f4' },
+  { key: 'f5' },
+  { key: 'f6' },
 ];
 
 export default function Services() {
@@ -23,7 +23,7 @@ export default function Services() {
         {features.map((f, i) => (
           <ScaleIn key={f.key} delay={i * 0.07}>
             <div className="feat-card">
-              <div className="feat-icon">{f.icon}</div>
+              <div className="feat-icon">{i + 1}</div>
               <h3>{t(`${f.key}title`)}</h3>
               <p>{t(`${f.key}text`)}</p>
             </div>

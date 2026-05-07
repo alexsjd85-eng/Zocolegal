@@ -87,7 +87,7 @@
     "message_ph": "Cuéntanos en qué podemos ayudarte...",
     "rgpd": "Acepto la política de privacidad y el tratamiento de mis datos según el RGPD. *",
     "send": "Enviar mensaje →",
-    "success": "✓ Mensaje enviado. Te respondemos en menos de 24 horas.",
+    "success": "Mensaje enviado. Te respondemos en menos de 24 horas.",
     "alert_fields": "Por favor rellena todos los campos obligatorios.",
     "alert_rgpd": "Debes aceptar la política de privacidad."
   },

@@ -87,7 +87,7 @@
     "message_ph": "Tell us how we can help you...",
     "rgpd": "I accept the privacy policy and the processing of my data under the GDPR. *",
     "send": "Send message →",
-    "success": "✓ Message sent. We will reply within 24 hours.",
+    "success": "Message sent. We will reply within 24 hours.",
     "alert_fields": "Please fill in all required fields.",
     "alert_rgpd": "You must accept the privacy policy."
   },

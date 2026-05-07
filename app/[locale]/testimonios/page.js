@@ -10,21 +10,21 @@ const EXPERTS = [
 
 const clientes = [
   {
-    meta: 'Ana M. — Reagrupación familiar ✓ — Barcelona',
+    meta: 'Ana M. — Reagrupación familiar — Barcelona',
     quote: 'Por fin alguien que nos explicó todo desde el principio. En dos semanas teníamos toda la documentación lista.',
   },
   {
-    meta: 'K.B. — Arraigo social ✓ — Lleida',
+    meta: 'K.B. — Arraigo social — Lleida',
     quote: 'Pensaba que mi caso era imposible. Me ayudaron a entender qué opciones tenía y el proceso fue mucho más rápido de lo esperado.',
   },
   {
-    meta: 'M.T. — Renovación TIE ✓ — Sabadell',
+    meta: 'M.T. — Renovación TIE — Sabadell',
     quote: 'Sin complicaciones y sin sorpresas. Sabía en todo momento en qué punto estaba mi expediente.',
   },
 ];
 
 function Stars({ count }) {
-  return <div className="testi-stars">{'★'.repeat(count)}</div>;
+  return <div className="testi-stars">{Array.from({ length: count }, (_, i) => <span key={i} className="testi-star" />)}</div>;
 }
 
 export default function TestimoniosPage() {

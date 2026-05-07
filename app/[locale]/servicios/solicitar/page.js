@@ -8,10 +8,10 @@ import Footer from '@/components/Footer';
 import { DOCUMENTOS_REQUERIDOS, TRAMITE_KEYS, PLAN_KEYS } from '@/lib/documentos';
 
 const PLANES = [
-  { id: 1, icon: '📖', nameKey: 'p1_name', price: '49€',       priceLabelKey: 'price_unique' },
-  { id: 2, icon: '🔍', nameKey: 'p2_name', price: '129€',      priceLabelKey: 'price_unique' },
-  { id: 3, icon: '🛡️', nameKey: 'p3_name', price: '299€',      priceLabelKey: 'price_from'   },
-  { id: 4, icon: '⭐', nameKey: 'p4_name', price: null,         priceLabelKey: ''             },
+  { id: 1, nameKey: 'p1_name', price: '49€',       priceLabelKey: 'price_unique' },
+  { id: 2, nameKey: 'p2_name', price: '129€',      priceLabelKey: 'price_unique' },
+  { id: 3, nameKey: 'p3_name', price: '299€',      priceLabelKey: 'price_from'   },
+  { id: 4, nameKey: 'p4_name', price: null,         priceLabelKey: ''             },
 ];
 
 function SolicitarContent() {
@@ -99,7 +99,7 @@ function SolicitarContent() {
       <Nav />
       <div className="page-hero">
         <h1>{t('page_title')}</h1>
-        <p>{t('plan_selected')} <strong>{planMeta.icon} {planName} — {planPrice} {planPriceLabel}</strong></p>
+        <p>{t('plan_selected')} <strong>{planName} — {planPrice} {planPriceLabel}</strong></p>
       </div>
       <motion.section
         className="section"
@@ -279,7 +279,7 @@ function SolicitarContent() {
                   <label>
                     {doc.name}
                     <span className="doc-tooltip">
-                      ℹ️
+                      <span className="doc-info-icon">i</span>
                       <span className="doc-tooltip-text">{doc.tooltip?.[locale] || doc.tooltip?.es}</span>
                     </span>
                   </label>
@@ -288,7 +288,7 @@ function SolicitarContent() {
                     accept=".pdf,.jpg,.jpeg,.png"
                     onChange={e => setFiles(prev => ({ ...prev, [doc.name]: e.target.files[0] || null }))}
                   />
-                  {files[doc.name] && <span className="upload-ok">✓ {files[doc.name].name}</span>}
+                  {files[doc.name] && <span className="upload-ok">{files[doc.name].name}</span>}
                 </div>
               ))}
             </>

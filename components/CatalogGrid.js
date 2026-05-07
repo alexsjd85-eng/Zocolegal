@@ -31,7 +31,9 @@ export default function CatalogGrid({ tramites }) {
     <section className="section">
       <div className="catalog-search-wrap">
         <div className="catalog-search-inner">
-          <span className="catalog-search-icon">🔍</span>
+          <span className="catalog-search-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
           <input
             className="catalog-search-input"
             type="text"
@@ -41,7 +43,7 @@ export default function CatalogGrid({ tramites }) {
           />
           {query && (
             <button className="catalog-search-clear" onClick={() => setQuery('')} aria-label="Limpiar búsqueda">
-              ✕
+              ×
             </button>
           )}
         </div>
@@ -71,14 +73,13 @@ export default function CatalogGrid({ tramites }) {
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="catalog-head">
-                  <span style={{fontSize:'1.3rem'}}>{item.icon}</span>
                   <h3>{title}</h3>
                   <span className="catalog-badge">{badge}</span>
                 </div>
                 <div className="catalog-body">
                   <p>{desc}</p>
                   <div className="catalog-meta">
-                    <span className="catalog-chip">⏱ {item.time_i18n?.[locale] || item.time}</span>
+                    <span className="catalog-chip">{item.time_i18n?.[locale] || item.time}</span>
                     {chips.map(c => <span key={c} className="catalog-chip">{c}</span>)}
                   </div>
                   <button className="btn-primary btn-full">{t('ver_ficha')}</button>

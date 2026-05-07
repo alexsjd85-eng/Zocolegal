@@ -69,6 +69,68 @@ body {
   font-size: .65rem; font-weight: 700; letter-spacing: .04em;
   padding: 4px 10px; border-radius: 20px; text-decoration: none;
 }
+.nav-back-btn {
+  display: none;
+  align-items: center; justify-content: center;
+  width: 34px; height: 34px;
+  background: none; border: none; cursor: pointer;
+  color: var(--navy); border-radius: 6px;
+  transition: background .15s; flex-shrink: 0;
+}
+.nav-back-btn:hover { background: rgba(27,58,92,.08); }
+.nav-burger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 36px; height: 36px;
+  background: none; border: none; cursor: pointer; padding: 5px;
+}
+.nav-burger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--navy); border-radius: 2px;
+}
+.nav-mobile-overlay {
+  position: fixed; inset: 0; z-index: 500;
+  background: var(--cream);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2rem;
+  padding: 2rem;
+}
+.nav-mobile-close {
+  position: absolute; top: 1rem; right: 1.25rem;
+  font-size: 2rem; line-height: 1;
+  background: none; border: none; cursor: pointer;
+  color: var(--navy);
+}
+.nav-mobile-links { list-style: none; text-align: center; }
+.nav-mobile-links li { margin-bottom: 1.5rem; }
+.nav-mobile-links a {
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--navy); text-decoration: none;
+}
+.nav-mobile-links a:hover { color: var(--gold); }
+.lang-sw-mobile { flex-wrap: wrap; justify-content: center; gap: 8px; }
+.back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: .45rem 1rem;
+  background: rgba(27,58,92,.08); border: none;
+  border-radius: var(--r-sm); color: var(--navy);
+  font-size: .88rem; font-weight: 600; cursor: pointer;
+  transition: background .15s;
+}
+.back-btn:hover { background: rgba(27,58,92,.15); }
+.price-num {
+  width: 44px; height: 44px; background: var(--navy);
+  border-radius: 10px; display: flex; align-items: center;
+  justify-content: center; font-size: 1.1rem; font-weight: 700;
+  color: #fff; margin-bottom: .75rem;
+}
+.doc-info-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  font-size: .65rem; font-weight: 700; font-style: italic;
+  cursor: default;
+}
 
 /* HERO */
 .hero {
@@ -131,9 +193,10 @@ body {
 }
 .feat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .feat-icon {
-  width: 44px; height: 44px; background: rgba(27,58,92,.08);
+  width: 44px; height: 44px; background: var(--navy);
   border-radius: 10px; display: flex; align-items: center;
-  justify-content: center; font-size: 1.15rem; margin-bottom: 1rem;
+  justify-content: center; font-size: .9rem; font-weight: 700;
+  color: #fff; margin-bottom: 1rem;
 }
 .feat-card h3 { font-size: .92rem; font-weight: 600; margin-bottom: 5px; }
 .feat-card p { font-size: .82rem; color: var(--ink2); line-height: 1.6; flex: 1; }
@@ -317,6 +380,7 @@ footer {
   border-radius: 20px; white-space: nowrap; letter-spacing: .04em;
 }
 .price-icon { font-size: 1.7rem; margin-bottom: .75rem; }
+/* .price-num defined in nav section above */
 .price-name {
   font-family: var(--font-playfair), serif;
   font-weight: 700; font-size: 1.1rem; color: var(--ink); margin-bottom: .35rem;
@@ -330,7 +394,7 @@ footer {
 .price-features { list-style: none; text-align: left; margin-bottom: 1.5rem; flex: 1; }
 .price-features li { font-size: .82rem; padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; align-items: flex-start; color: var(--ink); }
 .price-features li:last-child { border-bottom: none; }
-.price-features li::before { content: '✓'; color: var(--navy); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+.price-features li::before { content: '\203A'; color: var(--navy); font-weight: 700; flex-shrink: 0; margin-top: 2px; font-size: 1rem; }
 
 /* FORMS */
 .form-wrap { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; max-width: 680px; margin: 2rem auto 0; }
@@ -394,7 +458,7 @@ footer {
 .contact-info-card { background: var(--navy); color: #fff; border-radius: var(--r); padding: 2rem; }
 .contact-info-card h3 { font-family: var(--font-playfair),serif; font-size: 1.3rem; margin-bottom: 1.5rem; }
 .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1.25rem; }
-.contact-icon { width: 38px; height: 38px; border-radius: 8px; background: rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.contact-icon { width: 38px; height: 38px; border-radius: 8px; background: rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; }
 .contact-item-text .label { font-size: .72rem; opacity: .65; text-transform: uppercase; letter-spacing: .06em; }
 .contact-item-text .value { font-size: .9rem; font-weight: 500; }
 .contact-form-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; }
@@ -409,13 +473,21 @@ footer {
 .testi-quote { font-size: .93rem; color: var(--ink); line-height: 1.8; font-style: italic; margin: .75rem 0 1.25rem; }
 .testi-name { font-weight: 700; color: var(--ink); font-size: .92rem; }
 .testi-role { font-size: .78rem; color: var(--ink2); margin-top: .25rem; line-height: 1.5; }
-.testi-stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-top: .75rem; }
+.testi-stars { display: flex; gap: 4px; margin-top: .75rem; }
+.testi-star {
+  display: inline-block; width: 10px; height: 10px;
+  background: var(--gold); border-radius: 2px;
+}
 .testi-placeholder { background: var(--cream); border: 1px dashed var(--border); }
 
 /* RESPONSIVE */
 @media(max-width:700px) {
   .nav { padding: .7rem 1rem; }
   .nav-links { display: none; }
+  .lang-sw:not(.lang-sw-mobile) { display: none; }
+  .uoc-badge { display: none; }
+  .nav-back-btn { display: flex; }
+  .nav-burger { display: flex; }
   .stats { grid-template-columns: repeat(3,1fr); }
   .stat-n { font-size: 1.5rem; }
   .detail-grid { grid-template-columns: 1fr; }

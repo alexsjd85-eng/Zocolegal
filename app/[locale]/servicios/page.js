@@ -6,10 +6,10 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 
 const PLAN_IDS = [
-  { id: 1, icon: '📖', price: '49€',       featured: false },
-  { id: 2, icon: '🔍', price: '129€',      featured: true  },
-  { id: 3, icon: '🛡️', price: '299€',      featured: false },
-  { id: 4, icon: '⭐', price: null,         featured: false },
+  { id: 1, price: '49€',       featured: false },
+  { id: 2, price: '129€',      featured: true  },
+  { id: 3, price: '299€',      featured: false },
+  { id: 4, price: null,         featured: false },
 ];
 
 export default function ServiciosPage() {
@@ -67,7 +67,7 @@ export default function ServiciosPage() {
           {planes.map(plan => (
             <div key={plan.id} className={`price-card ${plan.featured ? 'featured' : ''}`}>
               {plan.featured && <div className="price-badge">{t('popular')}</div>}
-              <div className="price-icon">{plan.icon}</div>
+              <div className="price-num">{plan.id}</div>
               <div className="price-name">{plan.name}</div>
               <div className="price-amount">{plan.price} <span>{plan.priceLabel}</span></div>
               <p className="price-desc">{plan.desc}</p>
