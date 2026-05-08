@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
-const WEBHOOK_URL = 'https://TU_ENDPOINT_AQUI/api/chat';
+const WEBHOOK_URL = process.env.NEXT_PUBLIC_ZOCOBOT_WEBHOOK_URL || '';
 
 const LANGS = {
   es: {
@@ -140,16 +140,18 @@ export default function ZocoBot() {
     setBusy(true);
     setBubble(t.thinking);
     try {
-      // Descomenta para conectar al backend:
-      // const res  = await fetch(WEBHOOK_URL, {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ message: msg, lang }),
-      // });
-      // const data = await res.json();
-      // setBubble(data.reply || t.fallback);
-      await new Promise(r => setTimeout(r, 900));
-      setBubble(t.fallback);
+      if (WEBHOOK_URL) {
+        const res  = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: msg, lang }),
+        });
+        const data = await res.json();
+        setBubble(data.reply || t.fallback);
+      } else {
+        await new Promise(r => setTimeout(r, 900));
+        setBubble(t.fallback);
+      }
     } catch {
       setBubble(t.error);
     } finally {

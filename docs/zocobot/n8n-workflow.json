@@ -1,0 +1,135 @@
+{
+  "name": "ZocoBot — Claude API",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "zocobot",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://zocolegal.com,https://www.zocolegal.com"
+        }
+      },
+      "id": "1",
+      "name": "Webhook entrada",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "zocobot-prod"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extrae y valida los campos del body\nconst body = $input.first().json.body || $input.first().json;\nconst message = (body.message || '').trim().slice(0, 800);\nconst lang    = ['es','ca','en','ar','zh'].includes(body.lang) ? body.lang : 'es';\nconst session = body.session_id || 'anon';\n\nif (!message) {\n  throw new Error('Mensaje vacío');\n}\n\nconst langLabels = {\n  es: 'español',\n  ca: 'català',\n  en: 'English',\n  ar: 'العربية',\n  zh: '中文'\n};\n\nreturn [{ json: { message, lang, session, langLabel: langLabels[lang] } }];"
+      },
+      "id": "2",
+      "name": "Validar entrada",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Construye el system prompt con contexto de Zoco Legal\nconst { message, lang, langLabel } = $input.first().json;\n\nconst systemPrompt = `Eres ZocoBot, el asistente virtual de Zoco Legal (zocolegal.com),\nuna plataforma de servicios de extranjería e inmigración con sede en Barcelona, Cataluña.\n\nTu rol: orientar a usuarios sobre trámites de extranjería española de forma clara, empática\ny sin dar consejo jurídico vinculante. Siempre recomienda consultar con un abogado/a\npara casos específicos.\n\nCONOCIMIENTO BASE — trámites habituales que gestionamos:\n- Autorización de residencia inicial (no lucrativa, trabajo, reagrupación familiar)\n- Renovación de TIE / tarjeta de residencia\n- Autorización de trabajo por cuenta ajena y cuenta propia\n- Arraigo social, laboral y familiar\n- Reagrupación familiar\n- Residencia de larga duración (5 años)\n- Nacionalidad española por residencia\n- Visado de estudiante y renovaciones\n- Modificaciones de autorización\n- Recursos y reclamaciones ante denegaciones\n\nPLATAFORMAS OFICIALES relevantes:\n- SEDE electrónica del Ministerio del Interior\n- Mercurio (expedientes de extranjería)\n- DEHU (notificaciones electrónicas)\n- Cl@ve PIN y Certificado Digital\n- Registro de Extranjeros (NIE)\n\nPLAZOS orientativos:\n- Renovación TIE: 1–3 meses\n- Autorización inicial: 3–6 meses\n- Arraigo social: 3–6 meses\n- Larga duración: 2–4 meses\n- Nacionalidad: 1–3 años\n\nPRECIOS Zoco Legal (orientativos, confirmar con el equipo):\n- Orientación básica: 49€\n- Revisión profesional de expediente: 129€\n- Gestión completa del trámite: 299€\n\nTONO: Amable, claro, sin jerga jurídica. Respuestas concisas (máximo 3 párrafos).\nSi no sabes algo, di que lo consultarás con el equipo.\n\nIDIOMA DE RESPUESTA: Responde SIEMPRE en ${langLabel}.\n${ lang === 'ar' ? 'Usa texto de derecha a izquierda (RTL).' : '' }\n\nFINAL DE CADA RESPUESTA: Si el caso requiere atención personalizada,\nacompaña con: \"¿Quieres que un abogado/a de Zoco Legal te contacte?\"`;\n\nreturn [{ json: { message, lang, langLabel, systemPrompt } }];"
+      },
+      "id": "3",
+      "name": "Construir system prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "content-type",      "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model",      "value": "claude-haiku-4-5-20251001" },
+            { "name": "max_tokens", "value": "600" },
+            { "name": "system",     "value": "={{ $json.systemPrompt }}" },
+            {
+              "name": "messages",
+              "value": "=[ { \"role\": \"user\", \"content\": {{ JSON.stringify($json.message) }} } ]"
+            }
+          ]
+        },
+        "options": { "timeout": 25000 }
+      },
+      "id": "4",
+      "name": "Claude API (Haiku)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "anthropic-key",
+          "name": "Anthropic API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extrae el texto de la respuesta de Claude y lo devuelve al widget\nconst response = $input.first().json;\n\nif (response.error) {\n  return [{ json: { reply: 'Lo siento, ha ocurrido un error. Por favor inténtalo de nuevo o contáctanos directamente.' } }];\n}\n\nconst reply = response.content?.[0]?.text || 'Sin respuesta del asistente.';\nconst inputTokens  = response.usage?.input_tokens  || 0;\nconst outputTokens = response.usage?.output_tokens || 0;\n\nconsole.log(`Tokens — entrada: ${inputTokens}, salida: ${outputTokens}`);\n\nreturn [{ json: { reply, usage: { inputTokens, outputTokens } } }];"
+      },
+      "id": "5",
+      "name": "Formatear respuesta",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ reply: $json.reply }) }}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              { "name": "Access-Control-Allow-Origin",  "value": "https://zocolegal.com" },
+              { "name": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+              { "name": "Access-Control-Allow-Headers", "value": "Content-Type" },
+              { "name": "Content-Type",                 "value": "application/json" }
+            ]
+          }
+        }
+      },
+      "id": "6",
+      "name": "Responder al widget",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"reply\": \"Lo siento, ha ocurrido un error técnico. Puedes contactarnos en hola@zocolegal.com\" }",
+        "options": { "responseCode": 500 }
+      },
+      "id": "7",
+      "name": "Error handler",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 480]
+    }
+  ],
+  "connections": {
+    "Webhook entrada":        { "main": [[{ "node": "Validar entrada",          "type": "main", "index": 0 }]] },
+    "Validar entrada":        { "main": [[{ "node": "Construir system prompt",   "type": "main", "index": 0 }]] },
+    "Construir system prompt":{ "main": [[{ "node": "Claude API (Haiku)",        "type": "main", "index": 0 }]] },
+    "Claude API (Haiku)":     { "main": [[{ "node": "Formatear respuesta",       "type": "main", "index": 0 }]] },
+    "Formatear respuesta":    { "main": [[{ "node": "Responder al widget",       "type": "main", "index": 0 }]] }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "tags": ["zocobot", "zocolegal", "claude-api"],
+  "meta": { "instanceId": "zocobot-zocolegal" }
+}
