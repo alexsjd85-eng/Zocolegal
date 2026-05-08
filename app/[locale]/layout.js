@@ -5,6 +5,7 @@ import { Playfair_Display, DM_Sans } from 'next/font/google';
 import Script from 'next/script';
 import '../globals.css';
 import 'flag-icons/css/flag-icons.min.css';
+import ZocoBot from '@/components/ZocoBot';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -49,6 +50,7 @@ export default async function LocaleLayout({ children, params }) {
       <body className={`${playfair.variable} ${dmSans.variable}`}>
         <NextIntlClientProvider messages={messages}>
           {children}
+          <ZocoBot />
         </NextIntlClientProvider>
       </body>
     </html>
