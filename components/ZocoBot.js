@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
-const WEBHOOK_URL = process.env.NEXT_PUBLIC_ZOCOBOT_WEBHOOK_URL || '';
+const WEBHOOK_URL = process.env.NEXT_PUBLIC_ZOCOBOT_WEBHOOK_URL || 'https://zocolegal.app.n8n.cloud/webhook/zocobot';
 
 const LANGS = {
   es: {
